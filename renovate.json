@@ -1,0 +1,32 @@
+{
+  "extends": ["config:base", ":disableRateLimiting", ":semanticCommitTypeAll(fix)"],
+  "prHourlyLimit": 0,
+  "helm-values": {
+    "enabled": false
+  },
+  "dependencyDashboard": true,
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": false
+    },
+    {
+      "matchDatasources": ["helm"],
+      "matchUpdateTypes": ["patch"],
+      "semanticCommitType": "fix",
+      "labels": ["renovate/helm", "dep/patch"]
+    },
+    {
+      "matchDatasources": ["helm"],
+      "matchUpdateTypes": ["minor"],
+      "semanticCommitType": "feat",
+      "labels": ["renovate/helm", "dep/minor"]
+    },
+    {
+      "matchDatasources": ["helm"],
+      "matchUpdateTypes": ["major"],
+      "commitMessagePrefix": "feat(helm)!: ",
+      "labels": ["renovate/helm", "dep/major"]
+    }
+  ]
+}
