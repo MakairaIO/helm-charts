@@ -1,3 +1,10 @@
+# [matomo-v1.6.0](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.5.0...matomo-v1.6.0) (2022-08-19)
+
+
+### Features
+
+* add charts ([9aac6b4](https://github.com/MakairaIO/helm-charts/commit/9aac6b40b04de04960dfec8af8f7e9bec42ba252))
+
 # [matomo-v1.5.0](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.4.0...matomo-v1.5.0) (2021-12-19)
 
 

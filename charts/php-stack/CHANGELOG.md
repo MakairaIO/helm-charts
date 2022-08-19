@@ -1,3 +1,10 @@
+# [php-stack-v2.2.0](https://github.com/MakairaIO/helm-charts/compare/php-stack-v2.1.3...php-stack-v2.2.0) (2022-08-19)
+
+
+### Features
+
+* add charts ([9aac6b4](https://github.com/MakairaIO/helm-charts/commit/9aac6b40b04de04960dfec8af8f7e9bec42ba252))
+
 # [php-stack-v2.1.3](https://github.com/MakairaIO/helm-charts/compare/php-stack-v2.1.2...php-stack-v2.1.3) (2022-08-18)
 
 
