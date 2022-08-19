@@ -1,0 +1,31 @@
+{{ include "common.all" . }}
+{{ include "common.servicemonitor" . }}
+{{ include "common.migration" . }}
+
+{{ range $cronjob, $values := $.Values.cronjobs }}
+  {{- if and $values.enabled (not (eq $cronjob "default")) }}
+    {{- $local := deepCopy $ }}
+    {{- $_ := set $local "Values" (mergeOverwrite $local.Values $local.Values.cronjobs.default $values) }}
+    {{- $_ := set $local.Values "fullnameOverride" (cat (include "common.names.fullname" $) $cronjob | replace " " "-") }}
+    {{- $_ := set $local.Values "nameOverride" (cat (include "common.names.name" $) $cronjob | replace " " "-") }}
+    {{- include "common.cronjob" $local | nindent 0 }}
+    {{- if $local.Values.secret -}}
+      {{ include "common.secret" $local | nindent 0 }}
+    {{- end -}}
+  {{- end -}}
+{{- end }}
+
+{{ range $deployment, $values := $.Values.deployments }}
+  {{- if and $values.enabled (not (eq $deployment "default")) }}
+    {{- $local := deepCopy $ }}
+    {{- $_ := set $local "Values" (mergeOverwrite $local.Values $local.Values.deployments.default $values) }}
+    {{- $_ := set $local.Values "fullnameOverride" (cat (include "common.names.fullname" $) $deployment | replace " " "-") }}
+    {{- $_ := set $local.Values "nameOverride" (cat (include "common.names.name" $) $deployment | replace " " "-") }}
+    {{- include "common.deployment" $local | nindent 0 }}
+    {{- if $local.Values.secret -}}
+      {{ include "common.secret" $local | nindent 0 }}
+    {{- end -}}
+    {{ include "common.service" $local | nindent 0 }}
+    {{ include "common.ingress" $local | nindent 0 }}
+  {{- end -}}
+{{- end }}

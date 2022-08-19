@@ -1,0 +1,19 @@
+apiVersion: v2
+name: php-stack
+version: 2.1.3
+appVersion: 0.0.0
+dependencies:
+  - name: common
+    repository: https://library-charts.k8s-at-home.com
+    version: 4.5.2
+    import-values:
+      - child: addons
+        parent: addons
+  - name: mariadb
+    version: 11.0.12
+    repository: https://charts.bitnami.com/bitnami
+    condition: mariadb.enabled
+  - name: redis
+    version: 16.12.0
+    repository: https://charts.bitnami.com/bitnami
+    condition: redis.enabled

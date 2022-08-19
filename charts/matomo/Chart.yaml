@@ -1,0 +1,10 @@
+apiVersion: v2
+name: matomo
+version: 1.5.0
+appVersion: 4.0.5
+description: Matomo is an Analytics Tools for Online Shops.
+dependencies:
+  - name: mysql
+    version: ^0.1.0
+    repository: https://storage.googleapis.com/t3n-helm-charts/
+    condition: mysql.enabled

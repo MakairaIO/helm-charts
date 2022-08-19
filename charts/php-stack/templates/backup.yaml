@@ -1,0 +1,16 @@
+{{ if .Values.backup.enabled }}
+  {{- $local := deepCopy $ }}
+  {{- $tplValues := (deepCopy $) | mergeOverwrite $local.Values.backup }}
+  {{- $_ := set $local "Values" (mergeOverwrite $local.Values $local.Values.cronjobs.default $local.Values.backup) }}
+
+  {{- $_ := set $local.Values "secret" dict }}
+  {{- range $key, $template := $local.Values.secretMapping }}
+    {{- $_ := set $local.Values.secret $key (tpl $template $tplValues) }}
+  {{- end }}
+
+  {{- $_ := set $local.Values "fullnameOverride" (cat (include "common.names.fullname" $) "backup" | replace " " "-") }}
+  {{- include "common.cronjob" $local | nindent 0 }}
+  {{- if $local.Values.secret -}}
+    {{ include "common.secret" $local | nindent 0 }}
+  {{- end -}}
+{{- end }}

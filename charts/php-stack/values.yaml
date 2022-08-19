@@ -1,0 +1,286 @@
+controller:
+  enabled: true
+  # Valid options are deployment, daemonset, statefulset or cronjob
+  type: deployment
+
+  # For Deployments, valid values are Recreate (default) and RollingUpdate.
+  # For StatefulSets, valid values are OnDelete and RollingUpdate (default).
+  # DaemonSets ignore this.
+  strategy: RollingUpdate
+  rollingUpdate:
+    unavailable: 25%
+
+# You can define multiple deployments by using different names.
+# default is a special key for default values, that will be used for all deployments.
+deployments:
+  default:
+    controller:
+      replicas: 1
+      strategy: Recreate
+    service:
+      main:
+        enabled: false
+    ingress:
+      main:
+        enabled: false
+    probes:
+      liveness:
+        enabled: false
+  # You can use the same variables as for the upper level deployment.
+  # By default all upper level variables will be used. In this section you can define overrides.
+  # Example:
+  # worker-example:
+  #   enabled: false
+  #   command:
+  #     - php
+  #   args:
+  #     - /app/bin/console
+  #     - messenger:consume
+  #     - async
+  #     - --time-limit=3600
+  #     - -vv
+
+migration:
+  enabled: false
+  command: php
+  args:
+    - "bin/console"
+    - "doctrine:migrations:migrate"
+  annotations:
+    "helm.sh/hook": post-install
+    "helm.sh/hook-weight": "-5"
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
+  restartPolicy: Never
+
+# Cronjob specific configuration
+# You can define multiple cronjobs by using different names.
+# default is a special key for default values, that will be used for all cronjobs.
+cronjobs:
+  default:
+    schedule: "30 1 * * *"
+    backoffLimit: 3
+    startingDeadlineSeconds: 120
+    activeDeadlineSeconds: 3300
+    concurrencyPolicy: Forbid
+    restartPolicy: Never
+    successfulJobsHistoryLimit: 1
+    failedJobsHistoryLimit: 1
+    service:
+      main:
+        enabled: false
+    probes:
+      liveness:
+        enabled: false
+  # job-example:
+  #   enabled: false
+  #   schedule: "0 1 * * *"
+
+serviceMonitor:
+  ## If true, a ServiceMonitor CRD is created for a prometheus operator
+  ## https://github.com/coreos/prometheus-operator
+  ##
+  enabled: false
+  #  namespace: monitoring
+  matchLabels: {}
+  labels: {}
+  interval: 10s
+  scrapeTimeout: 10s
+  scheme: http
+  relabelings: []
+  targetLabels: []
+  metricRelabelings: []
+  sampleLimit: 0
+  metricsPort: http
+  additionalEndpointOptions:
+    {}
+    # params:
+    #   url_param_1: [ 'value' ]
+    #   url_param_2: [ 'value' ]
+
+enableServiceLinks: false
+automountServiceAccountToken: false
+
+env:
+  CONFIG_CHECKSUM: '{{ include "common.secret" . | sha256sum }}'
+  PORT: "{{- if .Values.service.main.enabled -}}{{ .Values.service.main.ports.http.targetPort | default (.Values.service.main.ports.http.port | default 80) }}{{- end -}}"
+
+service:
+  main:
+    ports:
+      http:
+        port: 80
+        targetPort: 80
+
+image:
+  pullPolicy: IfNotPresent
+
+probes:
+  liveness:
+    enabled: true
+
+  readiness:
+    enabled: false
+
+  startup:
+    enabled: false
+
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 33
+  runAsGroup: 33
+
+securityContext:
+  capabilities:
+    drop:
+      - SETPCAP
+      - MKNOD
+      - AUDIT_WRITE
+      - CHOWN
+      - NET_RAW
+      - DAC_OVERRIDE
+      - FOWNER
+      - FSETID
+      - KILL
+      - SETGID
+      - SETUID
+      # - NET_BIND_SERVICE
+      - SYS_CHROOT
+      - SETFCAP
+  allowPrivilegeEscalation: true
+  readOnlyRootFilesystem: false
+
+mariadb:
+  enabled: false
+
+  auth:
+    rootPassword: ""
+    username: ""
+    database: ""
+    password: ""
+    forcePassword: true
+    usePasswordFiles: false
+
+  primary:
+    resources:
+      limits:
+        memory: 1Gi
+        cpu: 500m
+      requests:
+        memory: 512Mi
+        cpu: 100m
+
+    persistence:
+      size: 1Gi
+
+    livenessProbe:
+      enabled: true
+
+    readinessProbe:
+      enabled: true
+
+  secondary:
+    replicaCount: 0
+
+  metrics:
+    enabled: true
+
+    resources:
+      limits:
+        memory: 64Mi
+        cpu: 500m
+      requests:
+        memory: 32Mi
+        cpu: 50m
+
+    serviceMonitor:
+      enabled: true
+
+backup:
+  enabled: false
+
+  image:
+    repository: ghcr.io/benjamin-maynard/kubernetes-cloud-mysql-backup
+    tag: v2.6.0
+    pullPolicy: IfNotPresent
+
+  schedule: "30 1 * * *"
+
+  encryptionKey: ""
+  compressBackup: true
+  backupTimestamp: "_%Y_%m_%d"
+
+  credentials:
+    awsAccessKeyId: ""
+    awsSecretAccessKey: ""
+
+  s3:
+    region: "eu-central-1"
+    bucketName: "makaira-cluster-backups"
+    bucketPath: ""
+
+  database:
+    host: ""
+    port: 3306
+    databases:
+      - ""
+    user: ""
+    password: ""
+
+  slack:
+    enabled: false
+    channel: ""
+    webhookUrl: ""
+
+  podSecurityContext:
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
+  securityContext:
+    allowPrivilegeEscalation: true
+    capabilities:
+      drop:
+        - SETPCAP
+        - MKNOD
+        - AUDIT_WRITE
+        # - CHOWN
+        # - NET_RAW
+        - DAC_OVERRIDE
+        - FOWNER
+        - FSETID
+        - KILL
+        - SETGID
+        - SETUID
+        - SYS_CHROOT
+        - SETFCAP
+
+  secretMapping:
+    AGE_PUBLIC_KEY: "{{ .encryptionKey }}"
+    BACKUP_COMPRESS: "{{ .compressBackup }}"
+    BACKUP_TIMESTAMP: "{{ .backupTimestamp }}"
+
+    AWS_ACCESS_KEY_ID: "{{ .credentials.awsAccessKeyId }}"
+    AWS_SECRET_ACCESS_KEY: "{{ .credentials.awsSecretAccessKey }}"
+
+    AWS_DEFAULT_REGION: "{{ .s3.region }}"
+    AWS_BUCKET_NAME: "{{ .s3.bucketName }}"
+    AWS_BUCKET_BACKUP_PATH: "{{ .s3.bucketPath }}"
+
+    TARGET_DATABASE_HOST: "{{ .database.host }}"
+    TARGET_DATABASE_PORT: "{{ .database.port }}"
+    TARGET_DATABASE_NAMES: '{{ .database.databases | join "," }}'
+    TARGET_DATABASE_USER: "{{ .database.user }}"
+    TARGET_DATABASE_PASSWORD: "{{ .database.password }}"
+
+    SLACK_ENABLED: "{{ .slack.enabled | default false }}"
+    SLACK_CHANNEL: "{{ .slack.channel }}"
+    SLACK_WEBHOOK_URL: "{{ .slack.webhookUrl }}"
+
+redis:
+  enabled: false
+  architecture: standalone
+  auth:
+    password: ""
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true

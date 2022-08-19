@@ -1,0 +1,279 @@
+replicaCount: 1
+revisionHistoryLimit: 0
+
+## PodDisruptionBudget
+## ref: https://kubernetes.io/docs/tasks/run-application/configure-pdb/#specifying-a-poddisruptionbudget
+# maxUnavailable: 1
+
+image:
+  repository: t3nde/matomo
+  tag: 4.0.5-fpm-alpine
+  pullPolicy: IfNotPresent
+
+nginx:
+  image:
+    repository: nginx
+    tag: 1.18.0-alpine
+    pullPolicy: IfNotPresent
+
+  resources: {}
+    # limits:
+    #  cpu: 100m
+    #  memory: 128Mi
+    # requests:
+    #  cpu: 100m
+    #  memory: 128Mi
+
+service:
+  type: ClusterIP
+  annotations: {}
+  labels: {}
+
+persistence:
+  enabled: true
+  annotations: {}
+  accessMode: ReadWriteOnce
+  existingClaim: ""
+  ## database data Persistent Volume Storage Class
+  ## If defined, storageClassName: <storageClass>
+  ## If set to "-", storageClassName: "", which disables dynamic provisioning
+  ## If undefined (the default) or set to null, no storageClassName spec is
+  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+  ##   GKE, AWS & OpenStack)
+  ##
+  # storageClass: "-"
+  size: 2Gi
+  mountPath: "/data"
+  subPath: ""
+
+extraEnvs: {}
+  # MATOMO_GENERAL_ENABLE_PLUGINS_ADMIN: 0
+  # MATOMO_GENERAL_FORCE_SSL: 1
+
+cronjobs:
+  archive:
+    enabled: false
+    schedule: "1 * * * *"
+    backoffLimit: 3 # Amount of retries
+    activeDeadlineSeconds: 3300 #Timeout after 55 minutes
+    resources: {}
+      # limits:
+      #  cpu: 100m
+      #  memory: 128Mi
+      # requests:
+      #  cpu: 100m
+      #  memory: 128Mi
+
+  ipdb:
+    enabled: false
+    # On the first day of the month at 10am
+    schedule: "0 10 1 * *"
+    resources: {}
+      # limits:
+      #  cpu: 100m
+      #  memory: 128Mi
+      # requests:
+      #  cpu: 100m
+      #  memory: 128Mi
+
+ingress:
+  enabled: true
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  # ingressClassName: "nginx"
+  path: /
+  hosts:
+    - matomo.local
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+## LivenessProbe
+## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/
+livenessProbe:
+  path: /matomo.php
+  initialDelaySeconds: 60
+  timeoutSeconds: 1
+  periodSeconds: 15
+readinessProbe:
+  path: /matomo.php
+  initialDelaySeconds: 0
+  periodSeconds: 25
+  timeoutSeconds: 5
+
+resources: {}
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 128Mi
+
+# Lifecycle for app deployment
+# lifecycle:
+#   preStop:
+#     exec:
+#       command:
+#       - sh
+#       - -c
+#       - "sleep 20"
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+antiAffinity: soft
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+metrics:
+  enabled: false
+
+volumes: {}
+  # - name: config-misc
+  #   configMap:
+  #     name: {{ include "matomo.fullname" . }}-misc
+
+volumeMounts: {}
+  # - name: config-misc
+  #   mountPath: /var/www/html/
+  #   subPath: php.ini
+
+config:
+  general:
+    force_ssl: 1
+    login_allowlist_apply_to_reporting_api_requests: 0
+    assume_secure_protocol: 1
+    enable_plugin_upload: 0
+    multi_server_environment: 1
+    proxy_client_headers:
+      - HTTP_X_FORWARDED_FOR
+    proxy_host_headers:
+      - HTTP_X_FORWARDED_HOST
+    extension: maxminddb.so
+  tracker:
+    ignore_visits_cookie_name: piwik_ignore
+
+geoip:
+  enabled: false
+  # maxmind_license_key: "LICENSE_KEY"
+  databases:
+    - GeoLite2-City
+    - GeoLite2-ASN
+
+misc: {}
+  # favicon: "" # Add a custom favicon (base64 encoded)
+  # logo: "" # Add a custom logo (base64 encoded)
+  # logo-header: "" # Add a custom logo header (base64 encoded)
+
+plugins:
+  # Manually installed plugins
+  # Every plugin listed here, will automatically be downloaded, installed and enabled
+  custom:
+    enabled: false
+    plugins:
+      - AbTesting:4.1.0
+      - CustomAlerts:4.0.1
+
+  deactivated:
+    - Provider
+    - MobileAppMeasurable
+
+  activated:
+    ## Default Plugins
+    - CorePluginsAdmin
+    - CoreAdminHome
+    - CoreHome
+    - WebsiteMeasurable
+    - IntranetMeasurable
+    - Diagnostics
+    - CoreVisualizations
+    - Proxy
+    - API
+    - Widgetize
+    - Transitions
+    - LanguagesManager
+    - Actions
+    - Dashboard
+    - MultiSites
+    - Referrers
+    - UserLanguage
+    - DevicesDetection
+    - Goals
+    - Ecommerce
+    - SEO
+    - Events
+    - UserCountry
+    - GeoIp2
+    - VisitsSummary
+    - VisitFrequency
+    - VisitTime
+    - VisitorInterest
+    - RssWidget
+    - Feedback
+    - Monolog
+    - Login
+    - TwoFactorAuth
+    - UsersManager
+    - SitesManager
+    - Installation
+    - CoreUpdater
+    - CoreConsole
+    - ScheduledReports
+    - UserCountryMap
+    - Live
+    - PrivacyManager
+    - ImageGraph
+    - Annotations
+    - MobileMessaging
+    - Overlay
+    - SegmentEditor
+    - Insights
+    - Morpheus
+    - Contents
+    - BulkTracking
+    - Resolution
+    - DevicePlugins
+    - Heartbeat
+    - Intl
+    - Marketplace
+    - ProfessionalServices
+    - UserId
+    - CustomJsTracker
+    - Tour
+    - PagePerformance
+    - CustomDimensions
+    - DBStats
+    - TagManager
+    - CustomVariables
+    - CoreVue
+
+autoscaling:
+  enabled: false
+  minReplicas: 2
+  maxReplicas: 11
+  cpuPercentage: 100
+  # memoryPercentage: 100
+
+salt: ""
+database:
+  host: mysql
+  adapter: PDO\MYSQL
+  tables_prefix: matomo_
+  dbname: matomo
+  username: matomo
+  password: matomo
+
+mysql:
+  enabled: true
+  mysqlUser: matomo
+  mysqlPassword: matomo
+  mysqlDatabase: matomo
