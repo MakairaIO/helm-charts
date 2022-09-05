@@ -46,7 +46,8 @@ persistence:
   mountPath: "/data"
   subPath: ""
 
-extraEnvs: {}
+extraEnvs:
+  PHP_MEMORY_LIMIT: 512M
   # MATOMO_GENERAL_ENABLE_PLUGINS_ADMIN: 0
   # MATOMO_GENERAL_FORCE_SSL: 1
 
