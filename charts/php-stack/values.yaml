@@ -46,6 +46,7 @@ migration:
   args:
     - "bin/console"
     - "doctrine:migrations:migrate"
+    - "-n"
   annotations:
     "helm.sh/hook": post-install
     "helm.sh/hook-weight": "-5"
