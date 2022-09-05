@@ -3,6 +3,20 @@ entries:
   matomo:
   - apiVersion: v2
     appVersion: 4.0.5
+    created: "2022-09-05T12:37:52.068162279Z"
+    dependencies:
+    - condition: mysql.enabled
+      name: mysql
+      repository: https://storage.googleapis.com/t3n-helm-charts/
+      version: ^0.1.0
+    description: Matomo is an Analytics Tools for Online Shops.
+    digest: 816d1e085d8f28ed90bf7f769fd90bead18b18b54ae8d349cefd83596d53d6ef
+    name: matomo
+    urls:
+    - https://github.com/MakairaIO/helm-charts/releases/download/matomo-v1.7.0/matomo-1.7.0.tgz
+    version: 1.7.0
+  - apiVersion: v2
+    appVersion: 4.0.5
     created: "2022-08-19T13:53:04.950303956Z"
     dependencies:
     - condition: mysql.enabled
@@ -16,6 +30,29 @@ entries:
     - https://github.com/MakairaIO/helm-charts/releases/download/matomo-v1.6.0/matomo-1.6.0.tgz
     version: 1.6.0
   php-stack:
+  - apiVersion: v2
+    appVersion: 0.0.0
+    created: "2022-09-05T12:37:52.222582178Z"
+    dependencies:
+    - import-values:
+      - child: addons
+        parent: addons
+      name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.5.2
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.0.12
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.12.0
+    digest: 32e2fd9b12c9848296ca7d3755ed37b39c81ab5568e6768107037ecb8ddaccc8
+    name: php-stack
+    urls:
+    - https://github.com/MakairaIO/helm-charts/releases/download/php-stack-v2.2.1/php-stack-2.2.1.tgz
+    version: 2.2.1
   - apiVersion: v2
     appVersion: 0.0.0
     created: "2022-08-19T13:53:05.181756584Z"
@@ -39,4 +76,4 @@ entries:
     urls:
     - https://github.com/MakairaIO/helm-charts/releases/download/php-stack-v2.2.0/php-stack-2.2.0.tgz
     version: 2.2.0
-generated: "2022-08-19T13:53:05.181765584Z"
+generated: "2022-09-05T12:37:52.222600179Z"
