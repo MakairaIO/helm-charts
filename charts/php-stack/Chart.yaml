@@ -1,6 +1,6 @@
 apiVersion: v2
 name: php-stack
-version: 2.2.0
+version: 2.2.1
 appVersion: 0.0.0
 dependencies:
   - name: common
