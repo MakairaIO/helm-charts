@@ -17,6 +17,9 @@ spec:
       {{- if .Values.cronjobs.archive.activeDeadlineSeconds }}
       activeDeadlineSeconds: {{ .Values.cronjobs.archive.activeDeadlineSeconds }}
       {{- end }}
+      {{- if .Values.cronjobs.archive.parallelism }}
+      parallelism: {{ .Values.cronjobs.archive.parallelism }}
+      {{- end }}
       backoffLimit: {{ .Values.cronjobs.archive.backoffLimit | default 3 }}
       template:
         spec:

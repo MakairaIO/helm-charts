@@ -56,6 +56,7 @@ cronjobs:
     schedule: "1 * * * *"
     backoffLimit: 3 # Amount of retries
     activeDeadlineSeconds: 3300 #Timeout after 55 minutes
+    # parallelism: 3
     resources: {}
       # limits:
       #  cpu: 100m
