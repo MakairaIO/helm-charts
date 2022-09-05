@@ -1,3 +1,10 @@
+# [matomo-v1.7.0](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.6.0...matomo-v1.7.0) (2022-09-05)
+
+
+### Features
+
+* add parallelism for archive job ([9ea194c](https://github.com/MakairaIO/helm-charts/commit/9ea194cabec7f31c0015a9c804fb65a2f5f04688))
+
 # [matomo-v1.6.0](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.5.0...matomo-v1.6.0) (2022-08-19)
 
 
