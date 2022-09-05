@@ -5,7 +5,7 @@ metadata:
   labels: {{- include "matomo.labels" . | nindent 4 }}
 data:
   php.ini: |
-    memory_limit=512M
+    memory_limit=768M
   matomo.conf: |
     upstream php-handler {
       server localhost:9000;
