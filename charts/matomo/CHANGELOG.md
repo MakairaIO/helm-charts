@@ -1,3 +1,10 @@
+# [matomo-v1.7.2](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.7.1...matomo-v1.7.2) (2022-09-05)
+
+
+### Bug Fixes
+
+* support custom memory_limit ([b605629](https://github.com/MakairaIO/helm-charts/commit/b605629e4b789cdc2a405f43a5add30b95bdfafd))
+
 # [matomo-v1.7.1](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.7.0...matomo-v1.7.1) (2022-09-05)
 
 
