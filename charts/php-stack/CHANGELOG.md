@@ -1,3 +1,10 @@
+# [php-stack-v2.2.1](https://github.com/MakairaIO/helm-charts/compare/php-stack-v2.2.0...php-stack-v2.2.1) (2022-09-05)
+
+
+### Bug Fixes
+
+* add -n for doctrine migration ([1c48b2b](https://github.com/MakairaIO/helm-charts/commit/1c48b2b5a4517b847fb6be5cfb21052c7a37da38))
+
 # [php-stack-v2.2.0](https://github.com/MakairaIO/helm-charts/compare/php-stack-v2.1.3...php-stack-v2.2.0) (2022-08-19)
 
 
