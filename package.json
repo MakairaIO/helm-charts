@@ -14,7 +14,7 @@
     "@semantic-release/npm": "9.0.1",
     "renovate": "^32.166.0",
     "semantic-release": "19.0.5",
-    "semantic-release-helm": "2.1.0",
+    "semantic-release-helm": "2.2.0",
     "semantic-release-monorepo": "7.0.5"
   }
 }
