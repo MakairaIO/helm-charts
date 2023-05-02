@@ -273,6 +273,11 @@ database:
   dbname: matomo
   username: matomo
   password: matomo
+  ssl:
+    enabled: false
+    ca:
+    cert:
+    key:
 
 mysql:
   enabled: true
