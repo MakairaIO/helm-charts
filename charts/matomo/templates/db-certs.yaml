@@ -1,0 +1,12 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  name: {{ include "matomo.fullname" . }}-db-certs
+  labels: {{- include "matomo.labels" . | nindent 4 }}
+stringData:
+  server-ca.pem: |-
+    {{ .Values.database.ssl.ca }}
+  client-cert.pem: |-
+    {{ .Values.database.ssl.cert }}
+  client-key.pem: |-
+    {{ .Values.database.ssl.key }}
