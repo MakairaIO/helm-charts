@@ -1,3 +1,10 @@
+# [matomo-v1.8.0](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.7.2...matomo-v1.8.0) (2023-05-02)
+
+
+### Features
+
+* **Matomo:** Add support for SSL database connection ([d3e46b7](https://github.com/MakairaIO/helm-charts/commit/d3e46b74127a955c33eee3b3cb192f816a6ce4a1))
+
 # [matomo-v1.7.2](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.7.1...matomo-v1.7.2) (2022-09-05)
 
 
