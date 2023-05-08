@@ -1,3 +1,10 @@
+# [matomo-v1.8.2](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.8.1...matomo-v1.8.2) (2023-05-08)
+
+
+### Bug Fixes
+
+* **Matomo:** Fix SSL handling for the database connection ([b0588dd](https://github.com/MakairaIO/helm-charts/commit/b0588ddf67ad47e732c0378ef8d0f602494d3d3f))
+
 # [matomo-v1.8.1](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.8.0...matomo-v1.8.1) (2023-05-02)
 
 
