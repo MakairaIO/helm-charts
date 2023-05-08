@@ -1,3 +1,10 @@
+# [copy-database-v1.1.0](https://github.com/MakairaIO/helm-charts/compare/copy-database-v1.0.0...copy-database-v1.1.0) (2023-05-08)
+
+
+### Features
+
+* Add README ([8699310](https://github.com/MakairaIO/helm-charts/commit/8699310c6ef60aa11eef07176606032b90e5f8a9))
+
 # copy-database-v1.0.0 (2023-05-08)
 
 
