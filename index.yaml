@@ -14,6 +14,20 @@ entries:
   matomo:
   - apiVersion: v2
     appVersion: 4.0.5
+    created: "2023-05-08T16:01:48.577636043Z"
+    dependencies:
+    - condition: mysql.enabled
+      name: mysql
+      repository: https://storage.googleapis.com/t3n-helm-charts/
+      version: ^0.1.0
+    description: Matomo is an Analytics Tools for Online Shops.
+    digest: ec48a46365277a27f0979d447f0cd48e05c6fee1ee02f061f190607a4308525b
+    name: matomo
+    urls:
+    - https://github.com/MakairaIO/helm-charts/releases/download/matomo-v1.8.3/matomo-1.8.3.tgz
+    version: 1.8.3
+  - apiVersion: v2
+    appVersion: 4.0.5
     created: "2023-05-02T15:36:24.989473075Z"
     dependencies:
     - condition: mysql.enabled
@@ -143,4 +157,4 @@ entries:
     urls:
     - https://github.com/MakairaIO/helm-charts/releases/download/php-stack-v2.2.0/php-stack-2.2.0.tgz
     version: 2.2.0
-generated: "2023-05-08T15:33:51.138335933Z"
+generated: "2023-05-08T16:01:48.578051339Z"
