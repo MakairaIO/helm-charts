@@ -267,11 +267,14 @@ database:
   dbname: matomo
   username: matomo
   password: matomo
-  # For TLS security to the database configure the required certificates:
+  # For an encrypted database connection configure the required certificates.
   #ssl:
-  #  serverCA:
+  #  serverCA: |-
+  #    Contents of your "server-ca.pem" file. It is extremely important that this is not stored in plain text!
   #  clientCert:
+  #    Contents of your "client-cert.pem" file. It is extremely important that this is not stored in plain text!
   #  clientKey:
+  #    Contents of your "client-key.pem" file. It is extremely important that this is not stored in plain text!
 
 mysql:
   enabled: true
