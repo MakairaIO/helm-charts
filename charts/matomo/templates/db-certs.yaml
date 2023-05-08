@@ -1,12 +1,20 @@
+{{- if .Values.database.ssl }}
 kind: Secret
 apiVersion: v1
 metadata:
   name: {{ include "matomo.fullname" . }}-db-certs
   labels: {{- include "matomo.labels" . | nindent 4 }}
 stringData:
+{{- if .Values.database.ssl.serverCA}}
   server-ca.pem: |-
-    {{ .Values.database.ssl.ca }}
+    {{ .Values.database.ssl.serverCA | nindent 4 }}
+{{- end }}
+{{- if .Values.database.ssl.clientCert }}
   client-cert.pem: |-
-    {{ .Values.database.ssl.cert }}
+    {{ .Values.database.ssl.clientCert | nindent 4 }}
+{{- end }}
+{{- if .Values.database.ssl.clientKey }}
   client-key.pem: |-
-    {{ .Values.database.ssl.key }}
+    {{ .Values.database.ssl.clientKey | nindent 4 }}
+{{- end }}
+{{- end }}

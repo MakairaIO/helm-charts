@@ -130,12 +130,6 @@ affinity: {}
 
 antiAffinity: soft
 
-nodeSelector: {}
-
-tolerations: []
-
-affinity: {}
-
 metrics:
   enabled: false
 
@@ -273,11 +267,11 @@ database:
   dbname: matomo
   username: matomo
   password: matomo
-  ssl:
-    enabled: false
-    ca:
-    cert:
-    key:
+  # For TLS security to the database configure the required certificates:
+  #ssl:
+  #  serverCA:
+  #  clientCert:
+  #  clientKey:
 
 mysql:
   enabled: true

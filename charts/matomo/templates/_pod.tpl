@@ -10,16 +10,22 @@ volumeMount for configs
   mountPath: /usr/local/etc/php/conf.d/php-matomo-custom.ini
   subPath: php.ini
 
-  {{- if .Values.database.ssl.enabled }}
+  {{- if .Values.database.ssl }}
+  {{- if .Values.database.ssl.serverCA }}
 - name: {{ include "matomo.fullname" . }}-db-certs
-  mountPath: /etc/ssl/certs/gcp-server-ca.pem
-  subPath: gcp-server-ca.pem
+  mountPath: /etc/ssl/certs/db-server-ca.pem
+  subPath: server-ca.pem
+  {{- end }}
+  {{- if .Values.database.ssl.clientCert }}
 - name: {{ include "matomo.fullname" . }}-db-certs
-  mountPath: /etc/ssl/certs/gcp-client-cert.pem
-  subPath: gcp-client-cert.pem
+  mountPath: /etc/ssl/certs/db-client-cert.pem
+  subPath: client-cert.pem
+  {{- end }}
+  {{- if .Values.database.ssl.clientKey }}
 - name: {{ include "matomo.fullname" . }}-db-certs
-  mountPath: /etc/ssl/private/gcp-client-key.pem
-  subPath: gcp-client-key.pem
+  mountPath: /etc/ssl/private/db-client-key.pem
+  subPath: client-key.pem
+  {{- end }}
   {{- end }}
 
   {{- if .Values.misc.favicon }}
