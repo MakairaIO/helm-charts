@@ -1,3 +1,10 @@
+# [matomo-v1.8.3](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.8.2...matomo-v1.8.3) (2023-05-08)
+
+
+### Bug Fixes
+
+* **Matomo:** Update SSL parameter descriptions ([80eebc4](https://github.com/MakairaIO/helm-charts/commit/80eebc4e7a85eb7d1f7d57991bee7110e58f0e65))
+
 # [matomo-v1.8.2](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.8.1...matomo-v1.8.2) (2023-05-08)
 
 
