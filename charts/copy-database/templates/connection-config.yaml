@@ -1,0 +1,89 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  name: {{ include "copy-database.fullname" . }}-connection-config
+  namespace: {{ .Release.Namespace }}
+  labels: {{- include "copy-database.labels" . | nindent 4 }}
+stringData:
+  source.cnf: |-
+    [client]
+    host={{ .Values.source.host | quote }}
+    user={{ .Values.source.user | quote }}
+    password={{ .Values.source.password | quote }}
+    port={{ .Values.source.port }}
+    {{- if .Values.source.ssl }}
+    {{- if .Values.source.ssl.serverCA }}
+    ssl-ca=/etc/copy-database/source-server-ca.pem
+    {{- end }}
+    {{- if .Values.source.ssl.clientCert }}
+    ssl-cert=/etc/copy-database/source-client-cert.pem
+    {{- end }}
+    {{- if .Values.source.ssl.clientKey }}
+    ssl-key=/etc/copy-database/source-client-key.pem
+    {{- end }}
+    {{- end }}
+
+    [mysqldump]
+    host={{ .Values.source.host | quote }}
+    user={{ .Values.source.user | quote }}
+    password={{ .Values.source.password | quote }}
+    port={{ .Values.source.port }}
+    {{- if .Values.source.ssl }}
+    {{- if .Values.source.ssl.serverCA }}
+    ssl-ca=/etc/copy-database/source-server-ca.pem
+    {{- end }}
+    {{- if .Values.source.ssl.clientCert }}
+    ssl-cert=/etc/copy-database/source-client-cert.pem
+    {{- end }}
+    {{- if .Values.source.ssl.clientKey }}
+    ssl-key=/etc/copy-database/source-client-key.pem
+    {{- end }}
+    {{- end }}
+
+{{- if .Values.source.ssl }}
+{{- if .Values.source.ssl.serverCA }}
+  source-server-ca.pem: |-
+    {{ .Values.destination.ssl.serverCA | nindent 4 }}
+{{- end }}
+{{- if .Values.source.ssl.clientCert }}
+  source-client-cert.pem: |-
+    {{ .Values.source.ssl.clientCert | nindent 4 }}
+{{- end }}
+{{- if .Values.source.ssl.clientKey }}
+  source-client-key.pem: |-
+    {{ .Values.source.ssl.clientKey | nindent 4 }}
+{{- end }}
+{{- end }}
+
+  destination.cnf: |-
+    [client]
+    host={{ .Values.destination.host | quote }}
+    user={{ .Values.destination.user | quote }}
+    password={{ .Values.destination.password | quote }}
+    port={{ .Values.destination.port }}
+    {{- if .Values.destination.ssl }}
+    {{- if .Values.destination.ssl.serverCA }}
+    ssl-ca=/etc/copy-database/destination-server-ca.pem
+    {{- end }}
+    {{- if .Values.destination.ssl.clientCert }}
+    ssl-cert=/etc/copy-database/destination-client-cert.pem
+    {{- end }}
+    {{- if .Values.destination.ssl.clientKey }}
+    ssl-key=/etc/copy-database/destination-client-key.pem
+    {{- end }}
+    {{- end }}
+
+{{- if .Values.destination.ssl }}
+{{- if .Values.destination.ssl.serverCA }}
+  destination-server-ca.pem: |-
+    {{ .Values.destination.ssl.serverCA | nindent 4 }}
+{{- end }}
+{{- if .Values.destination.ssl.clientCert }}
+  destination-client-cert.pem: |-
+    {{ .Values.destination.ssl.clientCert | nindent 4 }}
+{{- end }}
+{{- if .Values.destination.ssl.clientKey }}
+  destination-client-key.pem: |-
+    {{ .Values.destination.ssl.clientKey | nindent 4 }}
+{{- end }}
+{{- end }}

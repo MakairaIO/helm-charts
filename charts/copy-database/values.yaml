@@ -1,0 +1,51 @@
+replicaCount: 1
+revisionHistoryLimit: 0
+
+imagePullSecrets: {}
+
+image:
+  repository: ghcr.io/makairaio/copy-database
+  tag: 1
+  pullPolicy: IfNotPresent
+
+suspendJob: true
+
+source:
+    host: ""
+    port: 3306
+    user: ""
+    password: ""
+    database: ""
+
+destination:
+    host: ""
+    port: 3306
+    user: ""
+    password: ""
+    database: ""
+
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext:
+  capabilities:
+    drop:
+    - ALL
+  readOnlyRootFilesystem: true
+
+resources: {}
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
