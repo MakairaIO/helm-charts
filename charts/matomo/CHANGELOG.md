@@ -1,3 +1,10 @@
+# [matomo-v1.8.4](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.8.3...matomo-v1.8.4) (2023-05-31)
+
+
+### Bug Fixes
+
+* **Matomo:** Change check if SSL/TLS is configured ([3141e8f](https://github.com/MakairaIO/helm-charts/commit/3141e8f1ba1bff9a8e58bd9e23fe2def68a18370))
+
 # [matomo-v1.8.3](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.8.2...matomo-v1.8.3) (2023-05-08)
 
 
