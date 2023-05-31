@@ -27,7 +27,7 @@ deployments:
       liveness:
         enabled: false
   # You can use the same variables as for the upper level deployment.
-  # By default all upper level variables will be used. In this section you can define overrides.
+  # By default, all upper level variables will be used. In this section you can define overrides.
   # Example:
   # worker-example:
   #   enabled: false
