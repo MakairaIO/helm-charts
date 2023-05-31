@@ -1,3 +1,10 @@
+# [copy-database-v1.3.0](https://github.com/MakairaIO/helm-charts/compare/copy-database-v1.2.3...copy-database-v1.3.0) (2023-05-31)
+
+
+### Features
+
+* **copy-database:** Set default client auth ([a09d786](https://github.com/MakairaIO/helm-charts/commit/a09d7864ebcbff809197ce63dfe719b00c135870))
+
 # [copy-database-v1.2.3](https://github.com/MakairaIO/helm-charts/compare/copy-database-v1.2.2...copy-database-v1.2.3) (2023-05-31)
 
 
