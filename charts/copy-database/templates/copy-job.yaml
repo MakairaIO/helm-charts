@@ -13,27 +13,27 @@ spec:
         metadata:
             {{- with .Values.podAnnotations }}
           annotations:
-              {{- toYaml . | nindent 8 }}
+            {{- toYaml . | nindent 12 }}
             {{- end }}
           labels:
-              {{- include "copy-database.selectorLabels" . | nindent 8 }}
+            {{- include "copy-database.selectorLabels" . | nindent 12 }}
         spec:
             {{- if .Values.imagePullSecrets }}
           imagePullSecrets:
             - name: pull-secret
             {{- end }}
           securityContext:
-            {{- toYaml .Values.podSecurityContext | nindent 8 }}
+            {{- toYaml .Values.podSecurityContext | nindent 12 }}
           containers:
             - name: {{ .Chart.Name }}
               securityContext:
-                {{- toYaml .Values.securityContext | nindent 12 }}
+                {{- toYaml .Values.securityContext | nindent 16 }}
               image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
               imagePullPolicy: {{ .Values.image.pullPolicy }}
               resources:
-                {{- toYaml .Values.resources | nindent 12 }}
+                {{- toYaml .Values.resources | nindent 16 }}
               volumeMounts:
-                {{ include "copy-database.config.volumeMounts" . | indent 12 }}
+                {{ include "copy-database.config.volumeMounts" . | indent 16 }}
               env:
                 - name: SOURCE_DATABASE
                   value: {{ .Values.source.database }}
@@ -41,16 +41,16 @@ spec:
                   value: {{ .Values.destination.database }}
           restartPolicy: OnFailure
           volumes:
-            {{- include "copy-database.config.volumes" . | indent 8 }}
+            {{- include "copy-database.config.volumes" . | indent 12 }}
           {{- with .Values.nodeSelector }}
           nodeSelector:
-            {{- toYaml . | nindent 8 }}
+            {{- toYaml . | nindent 12 }}
           {{- end }}
           {{- with .Values.affinity }}
           affinity:
-            {{- toYaml . | nindent 8 }}
+            {{- toYaml . | nindent 12 }}
           {{- end }}
           {{- with .Values.tolerations }}
           tolerations:
-            {{- toYaml . | nindent 8 }}
+            {{- toYaml . | nindent 12 }}
           {{- end }}
