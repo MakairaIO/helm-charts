@@ -3,6 +3,16 @@ entries:
   copy-database:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2023-05-31T13:48:42.338275559Z"
+    description: Copy a MySQL or MariaDB database from one server to another
+    digest: 64654928ba6f4ef51cd76bc3b59b8c16e4bb453c635bc3bf304385971c12d495
+    name: copy-database
+    type: application
+    urls:
+    - https://github.com/MakairaIO/helm-charts/releases/download/copy-database-v1.2.3/copy-database-1.2.3.tgz
+    version: 1.2.3
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2023-05-31T13:30:53.432999887Z"
     description: Copy a MySQL or MariaDB database from one server to another
     digest: 1e7285f9d9fc0e02366554f302dc36670caa14dbe83aa70501a5170810ec87eb
@@ -224,4 +234,4 @@ entries:
     urls:
     - https://github.com/MakairaIO/helm-charts/releases/download/php-stack-v2.2.0/php-stack-2.2.0.tgz
     version: 2.2.0
-generated: "2023-05-31T13:30:53.433033087Z"
+generated: "2023-05-31T13:48:42.338665368Z"
