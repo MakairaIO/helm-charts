@@ -1,3 +1,10 @@
+# [php-stack-v2.3.0](https://github.com/MakairaIO/helm-charts/compare/php-stack-v2.2.1...php-stack-v2.3.0) (2023-05-31)
+
+
+### Features
+
+* **db-copy:** Create copy job as CronJob ([f99df2e](https://github.com/MakairaIO/helm-charts/commit/f99df2eea5f9786c0750cd21d989786de4e6a2f1))
+
 # [php-stack-v2.2.1](https://github.com/MakairaIO/helm-charts/compare/php-stack-v2.2.0...php-stack-v2.2.1) (2022-09-05)
 
 
