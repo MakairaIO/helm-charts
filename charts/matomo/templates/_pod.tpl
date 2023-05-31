@@ -60,7 +60,7 @@ volume for configs
 - name: config
   configMap:
     name: {{ include "matomo.fullname" . }}
-  {{- if .Values.database.ssl.enabled }}
+  {{- if .Values.database.ssl }}
 - name: db-certs
   secret:
     secretName: {{ include "matomo.fullname" . }}-db-certs
