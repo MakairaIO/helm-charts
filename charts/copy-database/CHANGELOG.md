@@ -1,3 +1,10 @@
+# [copy-database-v1.2.3](https://github.com/MakairaIO/helm-charts/compare/copy-database-v1.2.2...copy-database-v1.2.3) (2023-05-31)
+
+
+### Bug Fixes
+
+* Fix indents ([08f8eeb](https://github.com/MakairaIO/helm-charts/commit/08f8eeb8dc83ef8dd4eaa23ffc42b78b317fed6b))
+
 # [copy-database-v1.2.2](https://github.com/MakairaIO/helm-charts/compare/copy-database-v1.2.1...copy-database-v1.2.2) (2023-05-31)
 
 
