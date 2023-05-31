@@ -1,3 +1,10 @@
+# [copy-database-v1.2.0](https://github.com/MakairaIO/helm-charts/compare/copy-database-v1.1.0...copy-database-v1.2.0) (2023-05-31)
+
+
+### Features
+
+* **db-copy:** Create copy job as CronJob ([f99df2e](https://github.com/MakairaIO/helm-charts/commit/f99df2eea5f9786c0750cd21d989786de4e6a2f1))
+
 # [copy-database-v1.1.0](https://github.com/MakairaIO/helm-charts/compare/copy-database-v1.0.0...copy-database-v1.1.0) (2023-05-08)
 
 
