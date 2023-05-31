@@ -3,6 +3,16 @@ entries:
   copy-database:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2023-05-31T08:30:20.51231847Z"
+    description: Copy a MySQL or MariaDB database from one server to another
+    digest: ab3d782e1c97e3d6f49b1ba84e6676f344b786ec227431e250622409c93363f7
+    name: copy-database
+    type: application
+    urls:
+    - https://github.com/MakairaIO/helm-charts/releases/download/copy-database-v1.2.0/copy-database-1.2.0.tgz
+    version: 1.2.0
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2023-05-08T15:33:51.138320333Z"
     description: Copy a MySQL or MariaDB database from one server to another
     digest: 8ed8b91b9ce9b6b8fb3d2c95ed2b20dc659d3e4958cde871c16cd455de8467bc
@@ -113,6 +123,29 @@ entries:
   php-stack:
   - apiVersion: v2
     appVersion: 0.0.0
+    created: "2023-05-31T08:30:20.787134998Z"
+    dependencies:
+    - import-values:
+      - child: addons
+        parent: addons
+      name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.5.2
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.0.12
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.12.0
+    digest: b4c7c09a5b4bb20a02dfe853967d3c0891df92d47816707cf0fb65ff9a2629bb
+    name: php-stack
+    urls:
+    - https://github.com/MakairaIO/helm-charts/releases/download/php-stack-v2.3.0/php-stack-2.3.0.tgz
+    version: 2.3.0
+  - apiVersion: v2
+    appVersion: 0.0.0
     created: "2022-09-05T12:37:52.222582178Z"
     dependencies:
     - import-values:
@@ -157,4 +190,4 @@ entries:
     urls:
     - https://github.com/MakairaIO/helm-charts/releases/download/php-stack-v2.2.0/php-stack-2.2.0.tgz
     version: 2.2.0
-generated: "2023-05-08T16:01:48.578051339Z"
+generated: "2023-05-31T08:30:20.787174701Z"
