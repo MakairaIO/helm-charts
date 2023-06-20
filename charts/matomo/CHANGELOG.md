@@ -1,3 +1,10 @@
+# [matomo-v1.8.7](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.8.6...matomo-v1.8.7) (2023-06-20)
+
+
+### Bug Fixes
+
+* Add option to skip ssl cert verification for database connection ([9356d44](https://github.com/MakairaIO/helm-charts/commit/9356d44ad6b3c7893c063a62ba94de8caf91e2cd))
+
 # [matomo-v1.8.6](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.8.5...matomo-v1.8.6) (2023-06-20)
 
 
