@@ -1,3 +1,10 @@
+# [matomo-v1.8.5](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.8.4...matomo-v1.8.5) (2023-06-20)
+
+
+### Bug Fixes
+
+* Change volume name ([4860747](https://github.com/MakairaIO/helm-charts/commit/4860747c1d437c4c949d45f8535d126fb599ffad))
+
 # [matomo-v1.8.4](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.8.3...matomo-v1.8.4) (2023-05-31)
 
 
