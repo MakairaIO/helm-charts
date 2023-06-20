@@ -1,3 +1,10 @@
+# [matomo-v1.8.6](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.8.5...matomo-v1.8.6) (2023-06-20)
+
+
+### Bug Fixes
+
+* Change key for database connection encryption ([8d6e10c](https://github.com/MakairaIO/helm-charts/commit/8d6e10c58a64a54b0ac1b2b55ea5679b1ee3d316))
+
 # [matomo-v1.8.5](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.8.4...matomo-v1.8.5) (2023-06-20)
 
 
