@@ -12,17 +12,17 @@ volumeMount for configs
 
   {{- if .Values.database.ssl }}
   {{- if .Values.database.ssl.serverCA }}
-- name: {{ include "matomo.fullname" . }}-db-certs
+- name: db-certs
   mountPath: /etc/ssl/certs/db-server-ca.pem
   subPath: server-ca.pem
   {{- end }}
   {{- if .Values.database.ssl.clientCert }}
-- name: {{ include "matomo.fullname" . }}-db-certs
+- name: db-certs
   mountPath: /etc/ssl/certs/db-client-cert.pem
   subPath: client-cert.pem
   {{- end }}
   {{- if .Values.database.ssl.clientKey }}
-- name: {{ include "matomo.fullname" . }}-db-certs
+- name: db-certs
   mountPath: /etc/ssl/private/db-client-key.pem
   subPath: client-key.pem
   {{- end }}
