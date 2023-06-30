@@ -1,3 +1,10 @@
+# [matomo-v1.9.0](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.8.7...matomo-v1.9.0) (2023-06-30)
+
+
+### Features
+
+* Add timeout for mysqlnd connection ([8a879fb](https://github.com/MakairaIO/helm-charts/commit/8a879fbca6e918ce45efd1d69b1f84983d97def2))
+
 # [matomo-v1.8.7](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.8.6...matomo-v1.8.7) (2023-06-20)
 
 
