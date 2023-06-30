@@ -1,3 +1,10 @@
+# [matomo-v1.9.1](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.9.0...matomo-v1.9.1) (2023-06-30)
+
+
+### Bug Fixes
+
+* Define timaout as string ([2671afd](https://github.com/MakairaIO/helm-charts/commit/2671afd1091a5ccf3a4c192c618d18aa9cec88e2))
+
 # [matomo-v1.9.0](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.8.7...matomo-v1.9.0) (2023-06-30)
 
 
