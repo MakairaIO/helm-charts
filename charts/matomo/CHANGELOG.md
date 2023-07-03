@@ -1,3 +1,10 @@
+# [matomo-v1.9.3](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.9.2...matomo-v1.9.3) (2023-07-03)
+
+
+### Bug Fixes
+
+* Add missing adapter setting ([8938353](https://github.com/MakairaIO/helm-charts/commit/8938353259816fdc20821c98b4b8ec7886191aa9))
+
 # [matomo-v1.9.2](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.9.1...matomo-v1.9.2) (2023-07-03)
 
 
