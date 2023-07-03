@@ -7,6 +7,7 @@ data:
   php.ini: |
     memory_limit={{ .Values.extraEnvs.PHP_MEMORY_LIMIT }}
     mysqlnd.net_read_timeout={{ .Values.extraEnvs.MYSQLND_NET_READ_TIMEOUT }}
+    default_socket_timeout={{ .Values.extraEnvs.DEFAULT_SOCKET_TIMEOUT }}
   matomo.conf: |
     upstream php-handler {
       server localhost:9000;
