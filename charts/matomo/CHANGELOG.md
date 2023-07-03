@@ -1,3 +1,10 @@
+# [matomo-v1.9.2](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.9.1...matomo-v1.9.2) (2023-07-03)
+
+
+### Bug Fixes
+
+* Add default timeout for socket connections ([18c2abd](https://github.com/MakairaIO/helm-charts/commit/18c2abd2ddc42cdb34332e0ff130735100e6ad76))
+
 # [matomo-v1.9.1](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.9.0...matomo-v1.9.1) (2023-06-30)
 
 
