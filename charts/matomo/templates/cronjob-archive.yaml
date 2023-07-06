@@ -1,5 +1,5 @@
 {{- if .Values.cronjobs.archive.enabled -}}
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: {{ include "matomo.fullname" . }}-archive
