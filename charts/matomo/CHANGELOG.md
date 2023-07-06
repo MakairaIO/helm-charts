@@ -1,3 +1,10 @@
+# [matomo-v1.9.4](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.9.3...matomo-v1.9.4) (2023-07-06)
+
+
+### Bug Fixes
+
+* Update archive cronjob template ([dececc3](https://github.com/MakairaIO/helm-charts/commit/dececc3ea0ed386ca3c77df5b98783f326530837))
+
 # [matomo-v1.9.3](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.9.2...matomo-v1.9.3) (2023-07-03)
 
 
