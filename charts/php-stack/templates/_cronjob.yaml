@@ -15,6 +15,7 @@ metadata:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
+  suspend: {{ .Values.suspend | default "false" }}
   schedule: {{ .Values.schedule | quote }}
   concurrencyPolicy: {{ .Values.concurrencyPolicy | default "Forbid" }}
   {{- if .Values.startingDeadlineSeconds }}
