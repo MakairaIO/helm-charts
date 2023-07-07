@@ -1,3 +1,10 @@
+# [php-stack-v2.4.0](https://github.com/MakairaIO/helm-charts/compare/php-stack-v2.3.0...php-stack-v2.4.0) (2023-07-07)
+
+
+### Features
+
+* Add suspend option ([9daf8e9](https://github.com/MakairaIO/helm-charts/commit/9daf8e90c9780a94764540645314bfac6dda26f3))
+
 # [php-stack-v2.3.0](https://github.com/MakairaIO/helm-charts/compare/php-stack-v2.2.1...php-stack-v2.3.0) (2023-05-31)
 
 
