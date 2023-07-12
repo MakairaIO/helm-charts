@@ -1,3 +1,10 @@
+# [matomo-v1.9.5](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.9.4...matomo-v1.9.5) (2023-07-12)
+
+
+### Bug Fixes
+
+* Add verbose to archive job ([95d4114](https://github.com/MakairaIO/helm-charts/commit/95d4114b6863560ebb3baad225150274e8fbd144))
+
 # [matomo-v1.9.4](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.9.3...matomo-v1.9.4) (2023-07-06)
 
 
