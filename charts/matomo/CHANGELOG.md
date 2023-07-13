@@ -1,3 +1,10 @@
+# [matomo-v1.9.6](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.9.5...matomo-v1.9.6) (2023-07-13)
+
+
+### Bug Fixes
+
+* Update horizontalpodautoscaler.yaml ([eacab31](https://github.com/MakairaIO/helm-charts/commit/eacab317e226947427f3e9ff9e092a812c679ae0))
+
 # [matomo-v1.9.5](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.9.4...matomo-v1.9.5) (2023-07-12)
 
 
