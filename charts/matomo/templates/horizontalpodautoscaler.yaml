@@ -28,5 +28,5 @@ spec:
         target:
           type: Utilization
           averageUtilization: {{ .Values.autoscaling.cpuPercentage }}
-  {{- end }}
+  {{- end }} 
 {{- end -}}
