@@ -1,3 +1,10 @@
+# [matomo-v1.10.0](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.9.6...matomo-v1.10.0) (2023-07-19)
+
+
+### Features
+
+* **Matomo:** Add readonly connection ([e3eb1aa](https://github.com/MakairaIO/helm-charts/commit/e3eb1aac6d462a9deead677eebc774f3985a8672))
+
 # [matomo-v1.9.6](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.9.5...matomo-v1.9.6) (2023-07-13)
 
 
