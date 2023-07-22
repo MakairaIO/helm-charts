@@ -1,3 +1,10 @@
+# [matomo-v1.11.0](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.10.0...matomo-v1.11.0) (2023-07-22)
+
+
+### Features
+
+* Add clean cronjob ([c16f29d](https://github.com/MakairaIO/helm-charts/commit/c16f29d4466a11a57b5ea6e3e75f299de388be78))
+
 # [matomo-v1.10.0](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.9.6...matomo-v1.10.0) (2023-07-19)
 
 
