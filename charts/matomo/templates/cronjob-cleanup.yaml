@@ -22,7 +22,6 @@ spec:
           {{- end }}
         {{- end }}
           restartPolicy: Never
-          {{- include "matomo.custom.initContainers" . | nindent 10 }}
           containers:
           - name: {{ include "matomo.name" . }}
             image: "{{ .Values.cleanup.image.repository }}:{{ .Values.cleanup.image.tag }}"
