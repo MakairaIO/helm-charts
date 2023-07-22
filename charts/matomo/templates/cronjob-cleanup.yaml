@@ -1,0 +1,45 @@
+{{- if .Values.cronjobs.archive.enabled -}}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "matomo.fullname" . }}-cleanup
+  labels: {{- include "matomo.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.cleanup.schedule | quote }}
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      activeDeadlineSeconds: 31536000
+      backoffLimit: 3
+      template:
+        spec:
+        {{- if .Values.image.pullSecrets }}
+          imagePullSecrets:
+          {{- range .Values.image.pullSecrets }}
+            - name: {{ . }}
+          {{- end }}
+        {{- end }}
+          restartPolicy: Never
+          {{- include "matomo.custom.initContainers" . | nindent 10 }}
+          containers:
+          - name: {{ include "matomo.name" . }}
+            image: "{{ .Values.cleanup.image.repository }}:{{ .Values.cleanup.image.tag }}"
+            imagePullPolicy: {{ .Values.cleanup.image.pullPolicy }}
+            resources:
+              limits:
+                cpu: 100m
+                memory: 128Mi
+              requests:
+                cpu: 10m
+                memory: 32Mi
+            volumeMounts:
+              - name: secret-config
+                mountPath: /app/.env
+                subPath: .env
+          volumes:
+            - name: secret-config
+              secret:
+                secretName: {{ include "matomo.fullname" . }}-cleanup-config
+{{- end -}}
