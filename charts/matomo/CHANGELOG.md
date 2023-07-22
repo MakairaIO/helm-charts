@@ -1,3 +1,10 @@
+# [matomo-v1.11.1](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.11.0...matomo-v1.11.1) (2023-07-22)
+
+
+### Bug Fixes
+
+* Add tolerations ([19fe28d](https://github.com/MakairaIO/helm-charts/commit/19fe28df05cce130430380f3b91990a65a0cbbd2))
+
 # [matomo-v1.11.0](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.10.0...matomo-v1.11.0) (2023-07-22)
 
 
