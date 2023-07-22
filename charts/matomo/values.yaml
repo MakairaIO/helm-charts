@@ -288,7 +288,7 @@ cleanup:
   schedule: "42 0 1 * *"
   image:
     repository: ghcr.io/makairaio/matomo-clear-db
-    tag: 4.0.5-fpm-alpine
+    tag: 1
     pullPolicy: IfNotPresent
 
   tolerations:
