@@ -1,3 +1,10 @@
+# [matomo-v1.11.2](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.11.1...matomo-v1.11.2) (2023-07-22)
+
+
+### Bug Fixes
+
+* Change image tag ([f436269](https://github.com/MakairaIO/helm-charts/commit/f436269d4b27e952572cfa64d82964db24eeb5fd))
+
 # [matomo-v1.11.1](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.11.0...matomo-v1.11.1) (2023-07-22)
 
 
