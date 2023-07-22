@@ -1,3 +1,10 @@
+# [matomo-v1.11.4](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.11.3...matomo-v1.11.4) (2023-07-22)
+
+
+### Bug Fixes
+
+* Remove init containers ([f94a77d](https://github.com/MakairaIO/helm-charts/commit/f94a77daa4b9170f22aa9420fe038e6dfb76585c))
+
 # [matomo-v1.11.3](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.11.2...matomo-v1.11.3) (2023-07-22)
 
 
