@@ -27,6 +27,12 @@ spec:
           - name: {{ include "matomo.name" . }}
             image: "{{ .Values.cleanup.image.repository }}:{{ .Values.cleanup.image.tag }}"
             imagePullPolicy: {{ .Values.cleanup.image.pullPolicy }}
+
+          {{- with .Values.cleanup.tolerations }}
+            tolerations:
+              {{ toYaml . | indent 14 | trim }}
+          {{- end }}
+
             resources:
               limits:
                 cpu: 100m
@@ -34,6 +40,7 @@ spec:
               requests:
                 cpu: 10m
                 memory: 32Mi
+
             volumeMounts:
               - name: secret-config
                 mountPath: /app/.env

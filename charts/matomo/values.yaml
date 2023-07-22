@@ -290,3 +290,9 @@ cleanup:
     repository: ghcr.io/makairaio/matomo-clear-db
     tag: 4.0.5-fpm-alpine
     pullPolicy: IfNotPresent
+
+  tolerations:
+    - key: dedicated
+      operator: Equal
+      value: matomo
+      effect: NoSchedule

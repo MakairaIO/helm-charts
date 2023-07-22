@@ -61,7 +61,7 @@ spec:
             args: ['/bin/sh', '-c', '/usr/local/bin/php /var/www/html/console core:archive --url={{ include "matomo.fullname" . }} -vvv']
           {{- with .Values.cronjobs.archive.resources }}
             resources:
-              {{ toYaml . | indent 14 | trim}}
+              {{ toYaml . | indent 14 | trim }}
           {{- end }}
             volumeMounts:
               - name: data
