@@ -28,11 +28,6 @@ spec:
             image: "{{ .Values.cleanup.image.repository }}:{{ .Values.cleanup.image.tag }}"
             imagePullPolicy: {{ .Values.cleanup.image.pullPolicy }}
 
-          {{- with .Values.cleanup.tolerations }}
-            tolerations:
-              {{ toYaml . | indent 14 | trim }}
-          {{- end }}
-
             resources:
               limits:
                 cpu: 100m

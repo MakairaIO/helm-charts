@@ -290,9 +290,3 @@ cleanup:
     repository: ghcr.io/makairaio/matomo-clear-db
     tag: 1
     pullPolicy: IfNotPresent
-
-  tolerations:
-    - key: dedicated
-      operator: Equal
-      value: matomo
-      effect: NoSchedule
