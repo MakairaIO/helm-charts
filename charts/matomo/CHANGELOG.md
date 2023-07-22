@@ -1,3 +1,10 @@
+# [matomo-v1.11.5](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.11.4...matomo-v1.11.5) (2023-07-22)
+
+
+### Bug Fixes
+
+* Change pull secret ([18df2d7](https://github.com/MakairaIO/helm-charts/commit/18df2d7a5bd008faec8166dc4c5e9eff5eab45a5))
+
 # [matomo-v1.11.4](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.11.3...matomo-v1.11.4) (2023-07-22)
 
 
