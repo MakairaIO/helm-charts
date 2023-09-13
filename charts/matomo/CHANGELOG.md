@@ -1,3 +1,10 @@
+# [matomo-v1.11.6](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.11.5...matomo-v1.11.6) (2023-09-13)
+
+
+### Bug Fixes
+
+* **Matomo:** Add init container to set-up TCP keep alive settings ([f934795](https://github.com/MakairaIO/helm-charts/commit/f934795f40a72b10221aa5827d96ba7785e1e2f0))
+
 # [matomo-v1.11.5](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.11.4...matomo-v1.11.5) (2023-07-22)
 
 
