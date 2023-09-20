@@ -5,7 +5,7 @@ metadata:
   labels: {{- include "matomo.labels" . | nindent 4 }}
 data:
   php.ini: |
-    memory_limit={{ .Values.extraEnvs.PHP_MEMORY_LIMIT }}
+    memory_limit={{ default .Values.cronjobs.archive.extraEnvs.PHP_MEMORY_LIMIT .Values.extraEnvs.PHP_MEMORY_LIMIT }}
     mysqlnd.net_read_timeout={{ .Values.extraEnvs.MYSQLND_NET_READ_TIMEOUT }}
     default_socket_timeout={{ .Values.extraEnvs.DEFAULT_SOCKET_TIMEOUT }}
   matomo.conf: |

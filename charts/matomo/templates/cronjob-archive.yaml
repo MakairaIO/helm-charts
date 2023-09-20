@@ -55,6 +55,10 @@ spec:
               - name: {{ $key }}
                 value: {{ $value | quote }}
             {{- end }}
+            {{- range $key, $value := .Values.cronjob.archive.extraEnvs }}
+              - name: {{ $key }}
+                value: {{ $value | quote }}
+            {{- end }}
             envFrom:
               - secretRef:
                   name: {{ include "matomo.fullname" . }}-envs
