@@ -109,6 +109,10 @@ initContainers:
     - secretRef:
         name: {{ include "matomo.fullname" . }}-envs
   {{/* - end - */}}
+{{- include "matomo.custom.initContainers.setTcpKeepAlive" . }}
+{{- end -}}
+
+{{- define "matomo.custom.initContainers.setTcpKeepAlive" -}}
 - name: set-tcp-keep-alive
   image: alpine:3.16
   command: [sh, -c]
@@ -123,6 +127,7 @@ initContainers:
     privileged: true
 {{- end -}}
 
+{{/*
 {{/*
 volumes for custom components
 */}}
