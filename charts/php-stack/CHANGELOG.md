@@ -1,3 +1,10 @@
+# [php-stack-v2.4.1](https://github.com/MakairaIO/helm-charts/compare/php-stack-v2.4.0...php-stack-v2.4.1) (2023-09-20)
+
+
+### Bug Fixes
+
+* remove default scurity context ([013ec55](https://github.com/MakairaIO/helm-charts/commit/013ec551bc14d141fa7a7e09ef8a2f8af2fdd877))
+
 # [php-stack-v2.4.0](https://github.com/MakairaIO/helm-charts/compare/php-stack-v2.3.0...php-stack-v2.4.0) (2023-07-07)
 
 
