@@ -67,6 +67,8 @@ cronjobs:
       # requests:
       #  cpu: 100m
       #  memory: 128Mi
+    extraEnvs:
+      PHP_MEMORY_LIMIT: 512M  
 
   ipdb:
     enabled: false
