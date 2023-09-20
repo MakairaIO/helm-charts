@@ -109,10 +109,22 @@ initContainers:
     - secretRef:
         name: {{ include "matomo.fullname" . }}-envs
   {{/* - end - */}}
-{{- include "matomo.custom.initContainers.setTcpKeepAlive" . }}
+- name: set-tcp-keep-alive
+  image: alpine:3.16
+  command: [sh, -c]
+  args:
+    - |
+      echo "10" > /proc/sys/net/ipv4/tcp_keepalive_intvl
+      echo "5" > /proc/sys/net/ipv4/tcp_keepalive_probes
+      echo "10" > /proc/sys/net/ipv4/tcp_keepalive_time
+  securityContext:
+    runAsUser: 0
+    runAsGroup: 0
+    privileged: true
 {{- end -}}
 
 {{- define "matomo.custom.initContainers.setTcpKeepAlive" -}}
+initContainers:
 - name: set-tcp-keep-alive
   image: alpine:3.16
   command: [sh, -c]

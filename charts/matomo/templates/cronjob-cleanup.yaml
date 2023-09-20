@@ -39,6 +39,5 @@ spec:
             - name: secret-config
               secret:
                 secretName: {{ include "matomo.fullname" . }}-cleanup-config
-          initContainers:
-            {{- include "matomo.custom.initContainers.setTcpKeepAlive" . | nindent 12 }}
+          {{- include "matomo.custom.initContainers.setTcpKeepAlive" . | nindent 10 }}
 {{- end -}}
