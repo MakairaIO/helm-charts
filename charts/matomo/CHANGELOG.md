@@ -1,3 +1,10 @@
+# [matomo-v1.12.2](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.12.1...matomo-v1.12.2) (2023-09-20)
+
+
+### Bug Fixes
+
+* **Matomo:** Fix typo ([b34c37b](https://github.com/MakairaIO/helm-charts/commit/b34c37bc90b3f3b5177613dbc43ab1e55cc92b3d))
+
 # [matomo-v1.12.1](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.12.0...matomo-v1.12.1) (2023-09-20)
 
 
