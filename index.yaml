@@ -499,6 +499,29 @@ entries:
   php-stack:
   - apiVersion: v2
     appVersion: 0.0.0
+    created: "2023-09-20T10:16:44.757349638Z"
+    dependencies:
+    - import-values:
+      - child: addons
+        parent: addons
+      name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.5.2
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.0.12
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.12.0
+    digest: a5e8e778e97610d6c8cbdc24cd5e50fcaaaba08b346764b432cd6f7acdee9c3f
+    name: php-stack
+    urls:
+    - https://github.com/MakairaIO/helm-charts/releases/download/php-stack-v2.4.1/php-stack-2.4.1.tgz
+    version: 2.4.1
+  - apiVersion: v2
+    appVersion: 0.0.0
     created: "2023-07-07T07:44:27.146477551Z"
     dependencies:
     - import-values:
@@ -589,4 +612,4 @@ entries:
     urls:
     - https://github.com/MakairaIO/helm-charts/releases/download/php-stack-v2.2.0/php-stack-2.2.0.tgz
     version: 2.2.0
-generated: "2023-09-20T09:13:04.26633046Z"
+generated: "2023-09-20T10:16:44.75779307Z"
