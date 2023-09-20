@@ -1,3 +1,10 @@
+# [matomo-v1.13.1](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.13.0...matomo-v1.13.1) (2023-09-20)
+
+
+### Bug Fixes
+
+* Duplicate init container ([ac8ad80](https://github.com/MakairaIO/helm-charts/commit/ac8ad8060a056e73085625eaa1ecc2c2c571e6db))
+
 # [matomo-v1.13.0](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.12.2...matomo-v1.13.0) (2023-09-20)
 
 
