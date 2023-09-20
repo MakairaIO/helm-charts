@@ -55,7 +55,7 @@ spec:
               - name: {{ $key }}
                 value: {{ $value | quote }}
             {{- end }}
-            {{- range $key, $value := .Values.cronjob.archive.extraEnvs }}
+            {{- range $key, $value := .Values.cronjobs.archive.extraEnvs }}
               - name: {{ $key }}
                 value: {{ $value | quote }}
             {{- end }}
