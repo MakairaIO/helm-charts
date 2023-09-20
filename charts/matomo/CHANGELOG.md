@@ -1,3 +1,10 @@
+# [matomo-v1.13.0](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.12.2...matomo-v1.13.0) (2023-09-20)
+
+
+### Features
+
+* **Matomo:** Move init container into separate definition ([ba55479](https://github.com/MakairaIO/helm-charts/commit/ba554799937af1bcc7b0e041a7a97dbe0b649330))
+
 # [matomo-v1.12.2](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.12.1...matomo-v1.12.2) (2023-09-20)
 
 
