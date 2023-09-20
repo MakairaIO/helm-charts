@@ -1,3 +1,10 @@
+# [matomo-v1.12.1](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.12.0...matomo-v1.12.1) (2023-09-20)
+
+
+### Bug Fixes
+
+* **Matomo:** Add default value ([e26b716](https://github.com/MakairaIO/helm-charts/commit/e26b7169e6ced062165f13d7946ff1c612cd5d94))
+
 # [matomo-v1.12.0](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.11.6...matomo-v1.12.0) (2023-09-20)
 
 
