@@ -130,7 +130,7 @@ podSecurityContext:
   runAsUser: 33
   runAsGroup: 33
 
-# securityContext:
+securityContext: {}
 #   capabilities:
 #     drop:
 #       - SETPCAP
