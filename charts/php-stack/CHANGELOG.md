@@ -1,3 +1,10 @@
+# [php-stack-v2.4.2](https://github.com/MakairaIO/helm-charts/compare/php-stack-v2.4.1...php-stack-v2.4.2) (2023-09-20)
+
+
+### Bug Fixes
+
+* Set default value as empty object ([50f651d](https://github.com/MakairaIO/helm-charts/commit/50f651dd65f38fecf26dec7b31a6f14f1c256c3e))
+
 # [php-stack-v2.4.1](https://github.com/MakairaIO/helm-charts/compare/php-stack-v2.4.0...php-stack-v2.4.1) (2023-09-20)
 
 
