@@ -1,3 +1,10 @@
+# [matomo-v1.12.0](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.11.6...matomo-v1.12.0) (2023-09-20)
+
+
+### Features
+
+* **Matomo:** Respect extraEnv of matomo.cronjob.archive ([9457f15](https://github.com/MakairaIO/helm-charts/commit/9457f15b0436a9a962762bebd2cea248ae5db942))
+
 # [matomo-v1.11.6](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.11.5...matomo-v1.11.6) (2023-09-13)
 
 
