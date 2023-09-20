@@ -1,3 +1,10 @@
+# [php-stack-v2.4.3](https://github.com/MakairaIO/helm-charts/compare/php-stack-v2.4.2...php-stack-v2.4.3) (2023-09-20)
+
+
+### Bug Fixes
+
+* Remove default values for pod security ([42d2dc7](https://github.com/MakairaIO/helm-charts/commit/42d2dc7d37d1d06228f0637fd43d9ae2cd1e3046))
+
 # [php-stack-v2.4.2](https://github.com/MakairaIO/helm-charts/compare/php-stack-v2.4.1...php-stack-v2.4.2) (2023-09-20)
 
 
