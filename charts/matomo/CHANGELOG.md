@@ -1,3 +1,10 @@
+# [matomo-v1.13.2](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.13.1...matomo-v1.13.2) (2023-09-21)
+
+
+### Bug Fixes
+
+* **Matomo:** include labels to archiver job ([d1a3f59](https://github.com/MakairaIO/helm-charts/commit/d1a3f59f2f5f98c97a7656b8c05947a47acc1234))
+
 # [matomo-v1.13.1](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.13.0...matomo-v1.13.1) (2023-09-20)
 
 
