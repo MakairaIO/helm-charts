@@ -22,8 +22,6 @@ spec:
       {{- end }}
       backoffLimit: {{ .Values.cronjobs.archive.backoffLimit | default 3 }}
       template:
-        metadata:
-          labels: {{- include "matomo.labels" . | nindent 12 }}
         spec:
         {{- if .Values.image.pullSecrets }}
           imagePullSecrets:
