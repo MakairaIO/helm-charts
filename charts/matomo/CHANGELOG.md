@@ -1,3 +1,10 @@
+# [matomo-v1.13.3](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.13.2...matomo-v1.13.3) (2023-09-21)
+
+
+### Bug Fixes
+
+* **Matomo:** Fix nindent ([1faef5d](https://github.com/MakairaIO/helm-charts/commit/1faef5d706455f0d7b682c5352fb5efdf6500385))
+
 # [matomo-v1.13.2](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.13.1...matomo-v1.13.2) (2023-09-21)
 
 

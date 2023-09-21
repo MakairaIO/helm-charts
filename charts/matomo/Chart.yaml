@@ -1,6 +1,6 @@
 apiVersion: v2
 name: matomo
-version: 1.13.2
+version: 1.13.3
 appVersion: 4.0.5
 description: Matomo is an Analytics Tools for Online Shops.
 dependencies:
