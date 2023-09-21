@@ -1,3 +1,10 @@
+# [matomo-v1.13.4](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.13.3...matomo-v1.13.4) (2023-09-21)
+
+
+### Bug Fixes
+
+* Revert labeling for matomo archiver ([02461d6](https://github.com/MakairaIO/helm-charts/commit/02461d67a0548d618e6b626979b6303549b030b0))
+
 # [matomo-v1.13.3](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.13.2...matomo-v1.13.3) (2023-09-21)
 
 
