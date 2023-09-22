@@ -23,15 +23,6 @@ spec:
       backoffLimit: {{ .Values.cronjobs.archive.backoffLimit | default 3 }}
       template:
         spec:
-          affinity:
-            nodeAffinity:
-              requiredDuringSchedulingIgnoredDuringExecution:
-                nodeSelectorTerms:
-                  - matchExpressions:
-                    - key: makaira.io/dedicated
-                      operator: In
-                      values:
-                        - matomo
         {{- if .Values.image.pullSecrets }}
           imagePullSecrets:
           {{- range .Values.image.pullSecrets }}
