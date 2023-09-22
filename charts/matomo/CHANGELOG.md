@@ -1,3 +1,10 @@
+# [matomo-v1.14.0](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.13.4...matomo-v1.14.0) (2023-09-22)
+
+
+### Features
+
+* **Matomo:** Add node affinity for jobs back ([2ea9484](https://github.com/MakairaIO/helm-charts/commit/2ea9484d9bc78e73e1c196921984250d059d068f))
+
 # [matomo-v1.13.4](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.13.3...matomo-v1.13.4) (2023-09-21)
 
 
