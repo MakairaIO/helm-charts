@@ -1,3 +1,10 @@
+# [matomo-v1.14.1](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.14.0...matomo-v1.14.1) (2023-09-22)
+
+
+### Bug Fixes
+
+* **Matomo:** Remove affinity ([ef7d159](https://github.com/MakairaIO/helm-charts/commit/ef7d1594a29297fb6414385e6df0533055b12f85))
+
 # [matomo-v1.14.0](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.13.4...matomo-v1.14.0) (2023-09-22)
 
 
