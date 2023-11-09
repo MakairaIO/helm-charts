@@ -1,3 +1,10 @@
+# [matomo-v1.15.0](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.14.1...matomo-v1.15.0) (2023-11-09)
+
+
+### Features
+
+* Increase TCP live probes ([e7b19df](https://github.com/MakairaIO/helm-charts/commit/e7b19df4158d287b9badb712c82ae393ed05b9c8))
+
 # [matomo-v1.14.1](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.14.0...matomo-v1.14.1) (2023-09-22)
 
 
