@@ -81,8 +81,10 @@ Create the name of the service account to use
     periodSeconds: 5
   resources:
     {{- toYaml .Values.resources | nindent 4 }}
-  {{- with .Values.volumeMounts }}
   volumeMounts:
+    - name: metric-volume
+      mountPath: /app/var/metrics/
+  {{- with .Values.volumeMounts }}
     {{- toYaml . | nindent 4 }}
   {{- end }}
   {{- with .Values.env }}

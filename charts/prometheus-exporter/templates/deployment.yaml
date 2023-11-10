@@ -36,6 +36,8 @@ spec:
         - name: nginx-config-volume
           configMap:
             name: {{ include "prometheus-exporter.fullname" . }}-nginx-config
+        - name: metrics-volume
+          emptyDir: {}
       {{- with .Values.volumes }}
         {{- toYaml . | nindent 8 }}
       {{- end }}
