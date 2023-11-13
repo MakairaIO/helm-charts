@@ -1,3 +1,10 @@
+# [prometheus-exporter-v1.1.3](https://github.com/MakairaIO/helm-charts/compare/prometheus-exporter-v1.1.2...prometheus-exporter-v1.1.3) (2023-11-13)
+
+
+### Bug Fixes
+
+* Remove ingress hosts and tls ([db4b086](https://github.com/MakairaIO/helm-charts/commit/db4b086c039a71a0d3f4ac725f1632fdf62186e5))
+
 # [prometheus-exporter-v1.1.2](https://github.com/MakairaIO/helm-charts/compare/prometheus-exporter-v1.1.1...prometheus-exporter-v1.1.2) (2023-11-13)
 
 
