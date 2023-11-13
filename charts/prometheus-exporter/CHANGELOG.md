@@ -1,3 +1,10 @@
+# [prometheus-exporter-v1.1.5](https://github.com/MakairaIO/helm-charts/compare/prometheus-exporter-v1.1.4...prometheus-exporter-v1.1.5) (2023-11-13)
+
+
+### Bug Fixes
+
+* Update volume names ([de8397f](https://github.com/MakairaIO/helm-charts/commit/de8397fcba7125f0d8043cb38839a19332c80be6))
+
 # [prometheus-exporter-v1.1.4](https://github.com/MakairaIO/helm-charts/compare/prometheus-exporter-v1.1.3...prometheus-exporter-v1.1.4) (2023-11-13)
 
 
