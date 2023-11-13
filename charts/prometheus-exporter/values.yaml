@@ -41,20 +41,11 @@ fastcgi:
   index: "/index.php"
 
 ingress:
-  enabled: true
+  enabled: false
   className: "nginx"
-  annotations:
-    nginx.ingress.kubernetes.io/use-regex: 'false'
-    cert-manager.io/issuer: ca-cert-issuer
-  hosts:
-    - host: simple-prometheus-exporter.localhost
-      paths:
-        - path: /
-          pathType: Prefix
-  tls:
-    - secretName: simple-prometheus-exporter-tls
-      hosts:
-        - simple-prometheus-exporter.localhost
+  annotations: {}
+  hosts: []
+  tls: []
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
