@@ -731,6 +731,16 @@ entries:
   prometheus-exporter:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-11-13T13:42:17.13994962Z"
+    description: A Helm chart for Kubernetes
+    digest: 805ef0a2149d11524c4ba0ec2f2e9824bab3e534088f23e42643398b9c714c70
+    name: prometheus-exporter
+    type: application
+    urls:
+    - https://github.com/MakairaIO/helm-charts/releases/download/prometheus-exporter-v1.1.5/prometheus-exporter-1.1.5.tgz
+    version: 1.1.5
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-11-13T13:25:53.656951733Z"
     description: A Helm chart for Kubernetes
     digest: 30b5545d3d711852b6644b4ea767581d9790615578f04041c69cd8c0a90360c9
@@ -759,4 +769,4 @@ entries:
     urls:
     - https://github.com/MakairaIO/helm-charts/releases/download/prometheus-exporter-v1.1.2/prometheus-exporter-1.1.2.tgz
     version: 1.1.2
-generated: "2023-11-13T13:25:53.657234532Z"
+generated: "2023-11-13T13:42:17.140155133Z"
