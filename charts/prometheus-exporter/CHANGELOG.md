@@ -1,3 +1,10 @@
+# [prometheus-exporter-v1.1.2](https://github.com/MakairaIO/helm-charts/compare/prometheus-exporter-v1.1.1...prometheus-exporter-v1.1.2) (2023-11-13)
+
+
+### Bug Fixes
+
+* Change some values ([8643a9c](https://github.com/MakairaIO/helm-charts/commit/8643a9ca65d1bfe2ec3585fad527ab18ef49e8bd))
+
 # [prometheus-exporter-v1.1.1](https://github.com/MakairaIO/helm-charts/compare/prometheus-exporter-v1.1.0...prometheus-exporter-v1.1.1) (2023-11-13)
 
 
