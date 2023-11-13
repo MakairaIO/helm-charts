@@ -1,3 +1,10 @@
+# [prometheus-exporter-v1.1.1](https://github.com/MakairaIO/helm-charts/compare/prometheus-exporter-v1.1.0...prometheus-exporter-v1.1.1) (2023-11-13)
+
+
+### Bug Fixes
+
+* Update version ([fb4b583](https://github.com/MakairaIO/helm-charts/commit/fb4b583f886cbf981ec537681dd07559013aca29))
+
 # [prometheus-exporter-v1.1.0](https://github.com/MakairaIO/helm-charts/compare/prometheus-exporter-v1.0.0...prometheus-exporter-v1.1.0) (2023-11-10)
 
 
