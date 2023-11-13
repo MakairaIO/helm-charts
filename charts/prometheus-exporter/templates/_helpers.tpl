@@ -82,7 +82,7 @@ Create the name of the service account to use
   resources:
     {{- toYaml .Values.resources | nindent 4 }}
   volumeMounts:
-    - name: metric-volume
+    - name: {{ include "prometheus-exporter.fullname" . }}-metrics-volume
       mountPath: /app/var/metrics/
   {{- with .Values.volumeMounts }}
     {{- toYaml . | nindent 4 }}
@@ -111,10 +111,10 @@ Create the name of the service account to use
   resources:
     {{- toYaml .Values.resources | nindent 4 }}
   volumeMounts:
-    - name: nginx-config-volume
+    - name: {{ include "prometheus-exporter.fullname" . }}-nginx-config-volume
       mountPath: /etc/nginx/conf.d/default.conf
       subPath: nginx.conf
-    - name: nginx-config-volume
+    - name: {{ include "prometheus-exporter.fullname" . }}-nginx-config-volume
       mountPath: /etc/nginx/fastcgi_params
       subPath: fastcgi_params
     {{- with .Values.volumeMounts }}

@@ -31,10 +31,10 @@ spec:
       containers:
         {{- include "prometheus-exporter.containers" . | nindent 8 }}
       volumes:
-        - name: nginx-config-volume
+        - name: {{ include "prometheus-exporter.fullname" . }}-nginx-config-volume
           configMap:
             name: {{ include "prometheus-exporter.fullname" . }}-nginx-config
-        - name: metrics-volume
+        - name: {{ include "prometheus-exporter.fullname" . }}-metrics-volume
           emptyDir: {}
       {{- with .Values.volumes }}
         {{- toYaml . | nindent 8 }}
