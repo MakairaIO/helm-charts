@@ -14,4 +14,5 @@ spec:
     matchNames:
       - monitoring
   selector:
-    {{- include "prometheus-exporter.selectorLabels" . | nindent 4 }}
+    matchLabels:
+      {{- include "prometheus-exporter.selectorLabels" . | nindent 6 }}
