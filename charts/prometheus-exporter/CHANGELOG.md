@@ -1,3 +1,10 @@
+# [prometheus-exporter-v1.2.1](https://github.com/MakairaIO/helm-charts/compare/prometheus-exporter-v1.2.0...prometheus-exporter-v1.2.1) (2023-11-14)
+
+
+### Bug Fixes
+
+* set max body size ([8b95416](https://github.com/MakairaIO/helm-charts/commit/8b95416a274277367cc6f14760bfb395ca198bfd))
+
 # [prometheus-exporter-v1.2.0](https://github.com/MakairaIO/helm-charts/compare/prometheus-exporter-v1.1.5...prometheus-exporter-v1.2.0) (2023-11-14)
 
 
