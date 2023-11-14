@@ -89,7 +89,10 @@ Create the name of the service account to use
   {{- end }}
   {{- with .Values.env }}
   env:
-    {{- toYaml . | nindent 4 }}
+    {{ range $key, $val := . }}
+    - name: {{ $key }}
+      value: {{ $val | quote }}
+    {{ end }}
   {{- end }}
 - name: nginx
   securityContext:
