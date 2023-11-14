@@ -1,3 +1,10 @@
+# [prometheus-exporter-v1.2.0](https://github.com/MakairaIO/helm-charts/compare/prometheus-exporter-v1.1.5...prometheus-exporter-v1.2.0) (2023-11-14)
+
+
+### Features
+
+* Add env transformation ([0f2c3df](https://github.com/MakairaIO/helm-charts/commit/0f2c3df61771a962482cebbd9eed63923dbf5b48))
+
 # [prometheus-exporter-v1.1.5](https://github.com/MakairaIO/helm-charts/compare/prometheus-exporter-v1.1.4...prometheus-exporter-v1.1.5) (2023-11-13)
 
 
