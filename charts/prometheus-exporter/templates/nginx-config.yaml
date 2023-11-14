@@ -14,6 +14,8 @@ data:
       server_tokens off;
       server_name _;
 
+      client_max_body_size 100M;
+
       location /status {
         access_log off;
         return 200;
