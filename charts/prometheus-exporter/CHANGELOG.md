@@ -1,3 +1,10 @@
+# [prometheus-exporter-v1.2.2](https://github.com/MakairaIO/helm-charts/compare/prometheus-exporter-v1.2.1...prometheus-exporter-v1.2.2) (2023-11-15)
+
+
+### Bug Fixes
+
+* Change service monitor definition ([ebbb8d7](https://github.com/MakairaIO/helm-charts/commit/ebbb8d73103571e8090ff1f25ed7c5a919bfa962))
+
 # [prometheus-exporter-v1.2.1](https://github.com/MakairaIO/helm-charts/compare/prometheus-exporter-v1.2.0...prometheus-exporter-v1.2.1) (2023-11-14)
 
 
