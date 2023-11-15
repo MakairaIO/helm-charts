@@ -1,18 +1,18 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: {{ include "prometheus-exporter.fullname" . }}-monitor
+  name: {{ include "prometheus-exporter.fullname" . }}
   labels:
-    release: kps
-    app: {{ include "prometheus-exporter.fullname" . }}
+    {{- include "prometheus-exporter.labels" . | nindent 4 }}
 spec:
   endpoints:
     - port: metrics
+      path: /metrics
       interval: 15s
       scrapeTimeout: 10s
   namespaceSelector:
     matchNames:
-      - monitoring
+      - {{ .Release.Name }}
   selector:
     matchLabels:
       {{- include "prometheus-exporter.selectorLabels" . | nindent 6 }}
