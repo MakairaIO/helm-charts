@@ -1,3 +1,10 @@
+# [matomo-v1.17.0](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.16.1...matomo-v1.17.0) (2023-11-20)
+
+
+### Features
+
+* Add alias for metrics endpoint ([bd3060d](https://github.com/MakairaIO/helm-charts/commit/bd3060d3d04ad72fd87d98a8c9215f61a426d9fa))
+
 # [matomo-v1.16.1](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.16.0...matomo-v1.16.1) (2023-11-20)
 
 
