@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "matomo.fullname" . }}-queue-metrics
+  labels: {{- include "matomo.labels" . | nindent 4 }}
+    app.kubernetes.io/component: app
+spec:
+  endpoints:
+    - port: http
+      path: /metrics
+      interval: 15s
+      scrapeTimeout: 10s
+  namespaceSelector:
+    matchNames:
+      - {{ .Release.Name }}
+  selector:
+    matchLabels: {{- include "matomo.labels" . | nindent 4 }}
+    app.kubernetes.io/component: app
