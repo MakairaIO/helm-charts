@@ -14,5 +14,5 @@ spec:
     matchNames:
       - {{ .Release.Name }}
   selector:
-    matchLabels: {{- include "matomo.labels" . | nindent 4 }}
-    app.kubernetes.io/component: app
+    matchLabels: {{- include "matomo.labels" . | nindent 6 }}
+      app.kubernetes.io/component: app
