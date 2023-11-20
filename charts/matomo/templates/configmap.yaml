@@ -71,6 +71,12 @@ data:
         deny all;
         return 403; # replace with 404 to not show these directories exist
       }
+
+      ## alias for prometheus metrics
+      location /metrics {
+        rewrite ^ /index.php?module=API&method=QueueMonitoring.getQueueMetrics&format=original last;
+      }
+
       location ~ /\.ht {
         deny all;
         return 403;
