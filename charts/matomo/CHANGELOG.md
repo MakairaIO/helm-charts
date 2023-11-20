@@ -1,3 +1,10 @@
+# [matomo-v1.16.1](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.16.0...matomo-v1.16.1) (2023-11-20)
+
+
+### Bug Fixes
+
+* Fix indentation ([d8c576c](https://github.com/MakairaIO/helm-charts/commit/d8c576c5b9843bf624845b2c804bbb23e4e27c9b))
+
 # [matomo-v1.16.0](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.15.0...matomo-v1.16.0) (2023-11-20)
 
 
