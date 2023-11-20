@@ -1,3 +1,16 @@
+# [matomo-v1.16.0](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.15.0...matomo-v1.16.0) (2023-11-20)
+
+
+### Bug Fixes
+
+* Change path ([5d098fb](https://github.com/MakairaIO/helm-charts/commit/5d098fb01d2f5546c18b7e0fbda9d7b0443b5493))
+
+
+### Features
+
+* Add Matomo plugin to monitor tracking queue ([4e17682](https://github.com/MakairaIO/helm-charts/commit/4e17682dd6181c81d4d682829e065a0f8be1e8a8))
+* Add service monitor ([e78b5f0](https://github.com/MakairaIO/helm-charts/commit/e78b5f0587e34cbee817ee1d47c10399c1a9b21b))
+
 # [matomo-v1.15.0](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.14.1...matomo-v1.15.0) (2023-11-09)
 
 
