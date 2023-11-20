@@ -170,6 +170,9 @@ volumeMounts for custom components
   mountPath: /var/www/html/plugins/{{ regexSplit ":" . -1 | first }}
   subPath: {{ regexSplit ":" . -1 | first }}
     {{- end }}
+- name: custom-plugins
+  mountPath: /var/www/html/plugins/QueueMonitoring
+  subPath: QueueMonitoring
   {{- end }}
   {{- if .Values.geoip.enabled }}
     {{- range .Values.geoip.databases }}

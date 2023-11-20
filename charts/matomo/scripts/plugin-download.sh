@@ -45,6 +45,11 @@ EOF
   unzip -q -o "plugins-$PLUGIN_NAME" -d /custom-plugins/
 done
 
+echo "Installing Matomo queue monitoring plugin..."
+curl -f -sSL https://github.com/MakairaIO/matomo-queue-monitoring/archive/refs/heads/stable.tar.gz > /tmp/plugins-matomo-queue-monitoring.tar.gz
+mkdir -p /custom-plugins/QueueMonitoring
+tar --strip-components=1 -xzf /tmp/plugins-matomo-queue-monitoring.tar.gz -C /custom-plugins/QueueMonitoring
+
 echo "Adjusting permissions..."
 
 chown -R 82:82 /custom-plugins
