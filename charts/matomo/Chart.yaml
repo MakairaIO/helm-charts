@@ -5,6 +5,6 @@ appVersion: 4.0.5
 description: Matomo is an Analytics Tools for Online Shops.
 dependencies:
   - name: mysql
-    version: ^0.1.0
+    version: ^1.0.0
     repository: https://storage.googleapis.com/t3n-helm-charts/
     condition: mysql.enabled
