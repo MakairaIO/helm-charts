@@ -12,7 +12,7 @@ jobs:
       !(github.event_name == 'pull_request' && contains(join(github.event.pull_request.title, github.event.pull_request.body), '[skip ci]'))
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Import GPG key
         uses: crazy-max/ghaction-import-gpg@v5
