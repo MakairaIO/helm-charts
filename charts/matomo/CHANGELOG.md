@@ -1,3 +1,10 @@
+# [matomo-v1.17.1](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.17.0...matomo-v1.17.1) (2024-09-24)
+
+
+### Bug Fixes
+
+* Merge env vars ([9e442ef](https://github.com/MakairaIO/helm-charts/commit/9e442ef1b90463f0e5b353d2808f76f56c368093))
+
 # [matomo-v1.17.0](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.16.1...matomo-v1.17.0) (2023-11-20)
 
 
