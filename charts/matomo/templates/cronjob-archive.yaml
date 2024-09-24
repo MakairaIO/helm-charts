@@ -51,11 +51,8 @@ spec:
                 value: {{ .Values.database.dbname | quote }}
               - name: MATOMO_GENERAL_SALT
                 value: {{ required "`.Values.salt` is not set." .Values.salt | quote }}
-            {{- range $key, $value := .Values.extraEnvs }}
-              - name: {{ $key }}
-                value: {{ $value | quote }}
-            {{- end }}
-            {{- range $key, $value := .Values.cronjobs.archive.extraEnvs }}
+            {{- $extraEnvs := (deepCopy .Values.extraEnvs | mergeOverwrite .Values.cronjobs.archive.extraEnvs) }}
+            {{- range $key, $value := $extraEnvs }}
               - name: {{ $key }}
                 value: {{ $value | quote }}
             {{- end }}
