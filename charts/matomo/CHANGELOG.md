@@ -1,3 +1,10 @@
+# [matomo-v1.17.2](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.17.1...matomo-v1.17.2) (2024-09-24)
+
+
+### Bug Fixes
+
+* Change merge ([fa6399a](https://github.com/MakairaIO/helm-charts/commit/fa6399a301063d98f8cf002c4ca18b27ebd090c5))
+
 # [matomo-v1.17.1](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.17.0...matomo-v1.17.1) (2024-09-24)
 
 
