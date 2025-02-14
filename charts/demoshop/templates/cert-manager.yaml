@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: shop-cert
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{ include "demoshop.labels" . | nindent 4 }}
+spec:
+  secretName: shop-tls
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+  commonName: "{{ .Values.domain }}"
+  dnsNames:
+    - "{{ .Values.domain }}"

@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "demoshop.name" . }}-nginx-config
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{ include "demoshop.labels" . | nindent 4 }}
+data:
+  default.conf: |-
+    server {
+        listen 80;
+        server_name _;
+        root /var/www;
+        index index.php index.html;
+
+        {{- .Values.nginx.locations | nindent 8 }}
+    }
+
+  copy-static-assets: |-
+    #!/usr/bin/env bash
+    source_dir="$1"
+    shift
+
+    statics=()
+    while [[ $# -gt 0 ]]; do
+      statics+=("$1")
+      shift
+    done
+
+    for f in ${statics[@]}; do
+      if [[ ! -e "${f}" ]]; then
+        continue
+      fi
+      target_dir="/static-assets/$(dirname "${f}")"
+      mkdir -p "${target_dir}"
+
+      cp -rf ${source_dir}/${f} ${target_dir}/
+    done

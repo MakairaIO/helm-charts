@@ -1,0 +1,15 @@
+{{- if and (.Values.shop.generatedAssets.enabled) (.Values.shop.generatedAssets.storageClass) }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: shop-assets-pvc
+  namespace: {{ include "demoshop.name" . }}-assets-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: "{{ .Values.shop.generatedAssets.storageClass }}"
+  resources:
+    requests:
+      storage: "{{ .Values.shop.generatedAssets.storageSize }}"
+---
+{{- end }}

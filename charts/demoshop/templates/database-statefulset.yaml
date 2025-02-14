@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "demoshop.name" . }}-database
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "demoshop.labels" . | nindent 4 }}
+spec:
+  serviceName: {{ include "demoshop.name" . }}-database
+  replicas: 1
+  selector:
+    matchLabels:
+        {{ include "demoshop.selectorLabels" . | nindent 8 }}
+  template:
+    metadata:
+      labels:
+        {{ include "demoshop.labels" . | nindent 8 }}
+    spec:
+      containers:
+      - name: database
+        image: "{{ .Values.database.image }}"
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "{{ .Values.database.rootPassword }}"
+        - name: MYSQL_DATABASE
+          value: "{{ .Values.database.name }}"
+        - name: MYSQL_USER
+          value: "{{ .Values.database.user }}"
+        - name: MYSQL_PASSWORD
+          value: "{{ .Values.database.password }}"
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+        - name: {{ include "demoshop.name" . }}-database-storage
+          mountPath: /var/lib/mysql
+  volumeClaimTemplates:
+  - metadata:
+      name: {{ include "demoshop.name" . }}-database-storage
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: "{{ .Values.database.storageSize }}"

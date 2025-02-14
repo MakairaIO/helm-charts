@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: shop-ingress
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{ include "demoshop.labels" $ | nindent 4 }}
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+spec:
+  tls:
+  - hosts:
+    - "{{ .Values.domain }}"
+    secretName: shop-tls
+  rules:
+  - host: "{{ .Values.domain }}"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: shop
+            port:
+              number: 80

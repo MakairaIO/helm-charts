@@ -1,0 +1,36 @@
+domain: "shop.k8s.makaira.io"
+
+imagePullSecrets: []
+
+shop:
+  image: "php:8.4-fpm"
+  documentRoot: /app/public
+  staticAssets: []
+  generatedAssets:
+    enabled: false
+    storageClass: ""
+    storageSize: "5Gi"
+  envVars:
+
+nginx:
+  image: "nginx:latest"
+  locations: |-
+    location / {
+      gzip_static on;
+      try_files generated/$uri static/$uri /index.php?$query_string;
+    }
+
+    location ~ \.php$ {
+      include fastcgi_params;
+      fastcgi_pass 127.0.0.1:9000;
+      fastcgi_index index.php;
+      fastcgi_param SCRIPT_FILENAME /app/public/$fastcgi_script_name;
+    }
+
+database:
+  image: "mysql:8.0"
+  name: "database"
+  user: "username"
+  password: "password"
+  rootPassword: "SetYourOwnRootPassword!"
+  storageSize: "5Gi"
