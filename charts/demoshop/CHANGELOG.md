@@ -1,3 +1,10 @@
+# [demoshop-v1.1.1](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.1.0...demoshop-v1.1.1) (2025-02-17)
+
+
+### Bug Fixes
+
+* Remove obsolete script ([8858e4a](https://github.com/MakairaIO/helm-charts/commit/8858e4a3540259bfec9b2b5ad8decd7c5335b061))
+
 # [demoshop-v1.1.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.0.0...demoshop-v1.1.0) (2025-02-17)
 
 
