@@ -16,24 +16,3 @@ data:
 
         {{- .Values.nginx.locations | nindent 8 }}
     }
-
-  copy-static-assets: |-
-    #!/usr/bin/env bash
-    source_dir="$1"
-    shift
-
-    statics=()
-    while [[ $# -gt 0 ]]; do
-      statics+=("$1")
-      shift
-    done
-
-    for f in ${statics[@]}; do
-      if [[ ! -e "${f}" ]]; then
-        continue
-      fi
-      target_dir="/static-assets/$(dirname "${f}")"
-      mkdir -p "${target_dir}"
-
-      cp -rf ${source_dir}/${f} ${target_dir}/
-    done
