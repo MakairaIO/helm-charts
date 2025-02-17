@@ -1,3 +1,15 @@
+# [demoshop-v1.1.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.0.0...demoshop-v1.1.0) (2025-02-17)
+
+
+### Bug Fixes
+
+* Add some documentation ([2292e9a](https://github.com/MakairaIO/helm-charts/commit/2292e9a5bd5657bce53a0f4957829b56b2b02c47))
+
+
+### Features
+
+* Simplify shared asset handling ([0acda14](https://github.com/MakairaIO/helm-charts/commit/0acda14d33f172c24e9e79844a9b2c80d3aa597c))
+
 # demoshop-v1.0.0 (2025-02-14)
 
 
