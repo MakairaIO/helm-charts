@@ -4,23 +4,21 @@ imagePullSecrets: []
 
 shop:
   image: "php:8.4-fpm"
-  documentRoot: /app/public
-  staticAssets: []
-  generatedAssets:
+  sharedAssets:
     enabled: false
     storageClass: ""
     storageSize: "5Gi"
   envVars:
 
 nginx:
-  image: "nginx:latest"
+  image: "nginx:stable"
   locations: |-
     location / {
       gzip_static on;
-      try_files generated/$uri static/$uri /index.php?$query_string;
+      try_files $uri @php;
     }
 
-    location ~ \.php$ {
+    location @php {
       include fastcgi_params;
       fastcgi_pass 127.0.0.1:9000;
       fastcgi_index index.php;

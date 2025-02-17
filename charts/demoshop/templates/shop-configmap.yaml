@@ -8,6 +8,7 @@ metadata:
 data:
   default.conf: |-
     server {
+        server_tokens off;
         listen 80;
         server_name _;
         root /var/www;
