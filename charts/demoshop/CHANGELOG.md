@@ -1,3 +1,10 @@
+# [demoshop-v1.2.1](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.2.0...demoshop-v1.2.1) (2025-02-18)
+
+
+### Bug Fixes
+
+* Synchronize chart name with folder name ([fcbe555](https://github.com/MakairaIO/helm-charts/commit/fcbe555c050c02d591c286f3757cf79edb3e3e46))
+
 # [demoshop-v1.2.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.1.1...demoshop-v1.2.0) (2025-02-18)
 
 
