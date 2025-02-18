@@ -1,3 +1,10 @@
+# [demoshop-v1.4.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.3.0...demoshop-v1.4.0) (2025-02-18)
+
+
+### Features
+
+* Add location for Nginx health check ([4f6856e](https://github.com/MakairaIO/helm-charts/commit/4f6856e562afdb83cd09c97b35603122ed8578ea))
+
 # [demoshop-v1.3.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.2.2...demoshop-v1.3.0) (2025-02-18)
 
 
