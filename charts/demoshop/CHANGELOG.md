@@ -1,3 +1,10 @@
+# [demoshop-v1.2.2](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.2.1...demoshop-v1.2.2) (2025-02-18)
+
+
+### Bug Fixes
+
+* Fix chart version ([cd20372](https://github.com/MakairaIO/helm-charts/commit/cd20372b97a49060f167ef73f43aae3b1777b2d8))
+
 # [demoshop-v1.2.1](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.2.0...demoshop-v1.2.1) (2025-02-18)
 
 
