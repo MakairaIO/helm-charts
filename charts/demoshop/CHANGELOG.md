@@ -1,3 +1,10 @@
+# [demoshop-v1.4.3](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.4.2...demoshop-v1.4.3) (2025-02-18)
+
+
+### Bug Fixes
+
+* Fix volume name ([362c725](https://github.com/MakairaIO/helm-charts/commit/362c725337671c7618e0edd69035fd085944e0f8))
+
 # [demoshop-v1.4.2](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.4.1...demoshop-v1.4.2) (2025-02-18)
 
 
