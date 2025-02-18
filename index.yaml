@@ -61,6 +61,18 @@ entries:
     urls:
     - https://github.com/MakairaIO/helm-charts/releases/download/copy-database-v1.1.0/copy-database-1.1.0.tgz
     version: 1.1.0
+  demoshop:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2025-02-18T11:15:17.782725535Z"
+    description: A Helm chart for deploying a demo shop with PHP-FPM, Nginx, and a
+      database
+    digest: 4709d106d30cd34903cd209f1f0e8776c0e64f9bc94b2388e733c074a59f5e86
+    name: demoshop
+    type: application
+    urls:
+    - https://github.com/MakairaIO/helm-charts/releases/download/demoshop-v1.2.2/demoshop-1.2.2.tgz
+    version: 1.2.2
   matomo:
   - apiVersion: v2
     appVersion: 4.0.5
@@ -869,4 +881,4 @@ entries:
     urls:
     - https://github.com/MakairaIO/helm-charts/releases/download/prometheus-exporter-v1.1.2/prometheus-exporter-1.1.2.tgz
     version: 1.1.2
-generated: "2024-09-24T09:07:35.52137748Z"
+generated: "2025-02-18T11:15:17.783155972Z"
