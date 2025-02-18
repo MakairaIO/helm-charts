@@ -14,5 +14,9 @@ data:
         root /var/www;
         index index.php index.html;
 
+        location /healthz {
+            return 200 "OK";
+        }
+
         {{- .Values.nginx.locations | nindent 8 }}
     }
