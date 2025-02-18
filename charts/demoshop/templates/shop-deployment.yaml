@@ -12,12 +12,17 @@ spec:
       {{ include "demoshop.selectorLabels" $ | nindent 6 }}
   template:
     metadata:
+      annotations:
+        checksum/pull-secret: {{ include (print $.Template.BasePath "/image-pull-secret.yaml") . | sha256sum }}
+        checksum/config: {{ include (print $.Template.BasePath "/shop-configmap.yaml") . | sha256sum }}
       labels:
         {{ include "demoshop.labels" $ | nindent 8 }}
     spec:
       imagePullSecrets:
-        {{- range .Values.imagePullSecrets }}
-        - name: {{ .name }}
+        {{- range $pullSecret := .Values.imagePullSecrets }}
+        {{- if and $pullSecret.name $pullSecret.repo $pullSecret.auth }}
+        - name: {{ $pullSecret.name }}
+        {{- end }}
         {{- end }}
       initContainers:
       - name: metakube-init

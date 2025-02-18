@@ -1,6 +1,9 @@
 domain: "shop.k8s.makaira.io"
 
-imagePullSecrets: []
+imagePullSecrets:
+  - name: ""
+    repo: ""
+    auth: ""
 
 shop:
   image: "php:8.4-fpm"

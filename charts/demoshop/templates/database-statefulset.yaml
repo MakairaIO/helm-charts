@@ -13,26 +13,34 @@ spec:
         {{ include "demoshop.selectorLabels" . | nindent 8 }}
   template:
     metadata:
+      annotations:
+        checksum/pull-secret: {{ include (print $.Template.BasePath "/image-pull-secret.yaml") . | sha256sum }}
       labels:
         {{ include "demoshop.labels" . | nindent 8 }}
     spec:
+      imagePullSecrets:
+        {{- range $pullSecret := .Values.imagePullSecrets }}
+        {{- if and $pullSecret.name $pullSecret.repo $pullSecret.auth }}
+        - name: {{ $pullSecret.name }}
+        {{- end }}
+        {{- end }}
       containers:
-      - name: database
-        image: "{{ .Values.database.image }}"
-        env:
-        - name: MYSQL_ROOT_PASSWORD
-          value: "{{ .Values.database.rootPassword }}"
-        - name: MYSQL_DATABASE
-          value: "{{ .Values.database.name }}"
-        - name: MYSQL_USER
-          value: "{{ .Values.database.user }}"
-        - name: MYSQL_PASSWORD
-          value: "{{ .Values.database.password }}"
-        ports:
-        - containerPort: 3306
-        volumeMounts:
-        - name: {{ include "demoshop.name" . }}-database-storage
-          mountPath: /var/lib/mysql
+        - name: database
+          image: "{{ .Values.database.image }}"
+          env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: "{{ .Values.database.rootPassword }}"
+          - name: MYSQL_DATABASE
+            value: "{{ .Values.database.name }}"
+          - name: MYSQL_USER
+            value: "{{ .Values.database.user }}"
+          - name: MYSQL_PASSWORD
+            value: "{{ .Values.database.password }}"
+          ports:
+          - containerPort: 3306
+          volumeMounts:
+          - name: {{ include "demoshop.name" . }}-database-storage
+            mountPath: /var/lib/mysql
   volumeClaimTemplates:
   - metadata:
       name: {{ include "demoshop.name" . }}-database-storage
