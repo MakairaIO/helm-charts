@@ -1,3 +1,10 @@
+# [demoshop-v1.4.1](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.4.0...demoshop-v1.4.1) (2025-02-18)
+
+
+### Bug Fixes
+
+* Fix name for shared assets ([7aa7015](https://github.com/MakairaIO/helm-charts/commit/7aa701560ecbf91481b0587bd07bf373314c253f))
+
 # [demoshop-v1.4.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.3.0...demoshop-v1.4.0) (2025-02-18)
 
 
