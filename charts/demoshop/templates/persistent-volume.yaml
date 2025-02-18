@@ -1,4 +1,4 @@
-{{- if and (.Values.shop.generatedAssets.enabled) (.Values.shop.generatedAssets.storageClass) }}
+{{- if and (.Values.shop.sharedAssets.enabled) (.Values.shop.sharedAssets.storageClass) }}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -7,9 +7,9 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: "{{ .Values.shop.generatedAssets.storageClass }}"
+  storageClassName: "{{ .Values.shop.sharedAssets.storageClass }}"
   resources:
     requests:
-      storage: "{{ .Values.shop.generatedAssets.storageSize }}"
+      storage: "{{ .Values.shop.sharedAssets.storageSize }}"
 ---
 {{- end }}
