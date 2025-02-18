@@ -1,3 +1,10 @@
+# [demoshop-v1.4.5](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.4.4...demoshop-v1.4.5) (2025-02-18)
+
+
+### Bug Fixes
+
+* Add root permissions ([3e836ea](https://github.com/MakairaIO/helm-charts/commit/3e836ea639921f263ceed8c66edbd65b547f4eeb))
+
 # [demoshop-v1.4.4](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.4.3...demoshop-v1.4.4) (2025-02-18)
 
 
