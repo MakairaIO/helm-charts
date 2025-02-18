@@ -1,3 +1,10 @@
+# [copy-database-v1.3.1](https://github.com/MakairaIO/helm-charts/compare/copy-database-v1.3.0...copy-database-v1.3.1) (2025-02-18)
+
+
+### Bug Fixes
+
+* Fix chart version ([c5b19a0](https://github.com/MakairaIO/helm-charts/commit/c5b19a0101663dc43fb3c69c40104caae784b9fb))
+
 # [copy-database-v1.3.0](https://github.com/MakairaIO/helm-charts/compare/copy-database-v1.2.3...copy-database-v1.3.0) (2023-05-31)
 
 
