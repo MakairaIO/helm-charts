@@ -58,7 +58,7 @@ spec:
           {{- end }}
         volumeMounts:
         {{- if and (.Values.shop.sharedAssets.enabled) (.Values.shop.sharedAssets.storageClass) }}
-        - name: generated-assets
+        - name: shared-assets
           mountPath: /assets
         {{- end }}
 
