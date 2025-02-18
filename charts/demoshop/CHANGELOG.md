@@ -1,3 +1,10 @@
+# [demoshop-v1.2.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.1.1...demoshop-v1.2.0) (2025-02-18)
+
+
+### Features
+
+* Add checksums for automatic updates ([bd5b715](https://github.com/MakairaIO/helm-charts/commit/bd5b715fa0de4323ed70441916af45e341980d77))
+
 # [demoshop-v1.1.1](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.1.0...demoshop-v1.1.1) (2025-02-17)
 
 
