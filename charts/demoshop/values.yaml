@@ -6,7 +6,9 @@ imagePullSecrets:
     auth: ""
 
 shop:
-  image: "php:8.4-fpm"
+  image:
+    name: php
+    tag: 8.4-fpm
   sharedAssets:
     enabled: false
     storageClass: ""
@@ -14,7 +16,9 @@ shop:
   envVars:
 
 nginx:
-  image: "nginx:stable"
+  image:
+    name: nginx
+    tag: stable
   locations: |-
     location / {
       gzip_static on;
@@ -29,7 +33,9 @@ nginx:
     }
 
 database:
-  image: "mysql:8.0"
+  image:
+    name: mysql
+    tag: 8.0
   name: "database"
   user: "username"
   password: "password"

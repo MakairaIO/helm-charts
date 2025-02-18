@@ -35,7 +35,9 @@ spec:
             echo "10" > /proc/sys/net/ipv4/tcp_keepalive_time
       {{ if and .Values.shop.sharedAssets.enabled .Values.shop.sharedAssets.storageClass }}
       - name: copy-shared-assets
-        image: "{{ .Values.shop.image }}"
+        {{- with .Values.shop.image }}
+        image: "{{ .name }}:{{ .tag }}"
+        {{- end }}
         command: [ "sh", "-c", "rsync -auL /assets/* /shared-assets"]
         volumeMounts:
           - name: shared-assets
@@ -43,8 +45,10 @@ spec:
       {{- end }}
 
       containers:
-      - name: php-fpm
-        image: "{{ .Values.shop.image }}"
+      - name: shop
+        {{- with .Values.shop.image }}
+        image: "{{ .name }}:{{ .tag }}"
+        {{- end }}
         ports:
         - containerPort: 9000
         env:
@@ -59,7 +63,9 @@ spec:
         {{- end }}
 
       - name: nginx
-        image: "{{ .Values.nginx.image }}"
+        {{- with .Values.nginx.image }}
+        image: "{{ .name }}:{{ .tag }}"
+        {{- end }}
         ports:
         - containerPort: 80
         volumeMounts:

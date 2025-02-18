@@ -26,7 +26,9 @@ spec:
         {{- end }}
       containers:
         - name: database
-          image: "{{ .Values.database.image }}"
+          {{- with .Values.database.image }}
+          image: "{{ .name }}:{{ .tag }}"
+          {{- end }}
           env:
           - name: MYSQL_ROOT_PASSWORD
             value: "{{ .Values.database.rootPassword }}"
@@ -42,10 +44,10 @@ spec:
           - name: {{ include "demoshop.name" . }}-database-storage
             mountPath: /var/lib/mysql
   volumeClaimTemplates:
-  - metadata:
-      name: {{ include "demoshop.name" . }}-database-storage
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      resources:
-        requests:
-          storage: "{{ .Values.database.storageSize }}"
+    - metadata:
+        name: {{ include "demoshop.name" . }}-database-storage
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: "{{ .Values.database.storageSize }}"
