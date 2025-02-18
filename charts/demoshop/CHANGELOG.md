@@ -1,3 +1,10 @@
+# [demoshop-v1.4.4](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.4.3...demoshop-v1.4.4) (2025-02-18)
+
+
+### Bug Fixes
+
+* Auto encode image pull secret ([c165f8f](https://github.com/MakairaIO/helm-charts/commit/c165f8f585873104d7c1615a72d1799017960875))
+
 # [demoshop-v1.4.3](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.4.2...demoshop-v1.4.3) (2025-02-18)
 
 
