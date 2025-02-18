@@ -25,24 +25,29 @@ spec:
         {{- end }}
         {{- end }}
       initContainers:
-      - name: metakube-init
-        image: busybox
-        command: [sh, -c]
-        args:
-          - |
-            echo "10" > /proc/sys/net/ipv4/tcp_keepalive_intvl
-            echo "5" > /proc/sys/net/ipv4/tcp_keepalive_probes
-            echo "10" > /proc/sys/net/ipv4/tcp_keepalive_time
-      {{ if and .Values.shop.sharedAssets.enabled .Values.shop.sharedAssets.storageClass }}
-      - name: copy-shared-assets
-        {{- with .Values.shop.image }}
-        image: "{{ .name }}:{{ .tag }}"
+        - name: metakube-init
+          image: busybox
+          command: [sh, -c]
+          args:
+            - |
+              echo "10" > /proc/sys/net/ipv4/tcp_keepalive_intvl
+              echo "5" > /proc/sys/net/ipv4/tcp_keepalive_probes
+              echo "10" > /proc/sys/net/ipv4/tcp_keepalive_time
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            privileged: true
+
+        {{ if and .Values.shop.sharedAssets.enabled .Values.shop.sharedAssets.storageClass }}
+        - name: copy-shared-assets
+          {{- with .Values.shop.image }}
+          image: "{{ .name }}:{{ .tag }}"
+          {{- end }}
+          command: [ "sh", "-c", "rsync -auL /assets/* /shared-assets"]
+          volumeMounts:
+            - name: shared-assets
+              mountPath: /shared-assets
         {{- end }}
-        command: [ "sh", "-c", "rsync -auL /assets/* /shared-assets"]
-        volumeMounts:
-          - name: shared-assets
-            mountPath: /shared-assets
-      {{- end }}
 
       containers:
       - name: shop
