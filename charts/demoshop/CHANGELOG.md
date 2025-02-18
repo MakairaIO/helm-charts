@@ -1,3 +1,10 @@
+# [demoshop-v1.3.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.2.2...demoshop-v1.3.0) (2025-02-18)
+
+
+### Features
+
+* Split image into name and tag ([1ae5b2a](https://github.com/MakairaIO/helm-charts/commit/1ae5b2a47fab9534dc7c7b79e44631d8f27ee149))
+
 # [demoshop-v1.2.2](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.2.1...demoshop-v1.2.2) (2025-02-18)
 
 
