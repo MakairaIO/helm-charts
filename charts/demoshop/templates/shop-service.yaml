@@ -8,8 +8,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    matchLabels:
-      {{ include "demoshop.selectorLabels" $ | nindent 6 }}
+    {{ include "demoshop.selectorLabels" $ | nindent 6 }}
   ports:
     - protocol: TCP
       port: 80
