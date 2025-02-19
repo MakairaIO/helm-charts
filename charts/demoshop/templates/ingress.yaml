@@ -6,12 +6,13 @@ metadata:
   labels:
     {{ include "demoshop.labels" $ | nindent 4 }}
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/tls-acme: 'true'
 spec:
   ingressClassName: nginx
   tls:
     - hosts:
       - "{{ .Values.domain }}"
+      secretName: {{ include "demoshop.name" $ }}-tls
   rules:
     - host: "{{ .Values.domain }}"
       http:

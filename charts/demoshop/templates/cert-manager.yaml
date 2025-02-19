@@ -8,8 +8,9 @@ metadata:
 spec:
   secretName: {{ include "demoshop.name" $ }}-tls
   issuerRef:
-    name: letsencrypt
+    group: cert-manager.io
     kind: ClusterIssuer
+    name: le-issuer
   commonName: "{{ .Values.domain }}"
   dnsNames:
     - "{{ .Values.domain }}"
