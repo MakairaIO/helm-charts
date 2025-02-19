@@ -1,3 +1,10 @@
+# [demoshop-v1.4.8](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.4.7...demoshop-v1.4.8) (2025-02-19)
+
+
+### Bug Fixes
+
+* Change labels ([0835a2e](https://github.com/MakairaIO/helm-charts/commit/0835a2e7d82e2ee4a1d08d61649fdcc16810e024))
+
 # [demoshop-v1.4.7](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.4.6...demoshop-v1.4.7) (2025-02-19)
 
 
