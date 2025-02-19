@@ -1,3 +1,10 @@
+# [demoshop-v1.4.10](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.4.9...demoshop-v1.4.10) (2025-02-19)
+
+
+### Bug Fixes
+
+* Change ingress definition ([2152e8c](https://github.com/MakairaIO/helm-charts/commit/2152e8cec8c7067eb99023e932e10193197cdff2))
+
 # [demoshop-v1.4.9](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.4.8...demoshop-v1.4.9) (2025-02-19)
 
 
