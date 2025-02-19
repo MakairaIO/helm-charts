@@ -1,3 +1,10 @@
+# [demoshop-v1.4.6](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.4.5...demoshop-v1.4.6) (2025-02-19)
+
+
+### Bug Fixes
+
+* Add missing service ([7f33804](https://github.com/MakairaIO/helm-charts/commit/7f33804f113ec00742909573c39aa828390c59bd))
+
 # [demoshop-v1.4.5](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.4.4...demoshop-v1.4.5) (2025-02-18)
 
 
