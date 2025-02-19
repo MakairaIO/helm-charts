@@ -1,3 +1,10 @@
+# [demoshop-v1.4.11](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.4.10...demoshop-v1.4.11) (2025-02-19)
+
+
+### Bug Fixes
+
+* Change TLS handling ([54e24a2](https://github.com/MakairaIO/helm-charts/commit/54e24a20836cdf7826bf50d31789987f50c4014f))
+
 # [demoshop-v1.4.10](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.4.9...demoshop-v1.4.10) (2025-02-19)
 
 
