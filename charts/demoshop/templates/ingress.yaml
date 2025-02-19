@@ -8,18 +8,18 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
+  ingressClassName: nginx
   tls:
-  - hosts:
-    - "{{ .Values.domain }}"
-    secretName: shop-tls
+    - hosts:
+      - "{{ .Values.domain }}"
   rules:
-  - host: "{{ .Values.domain }}"
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: shop
-            port:
-              number: 80
+    - host: "{{ .Values.domain }}"
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: {{ include "demoshop.name" $ }}-shop
+              port:
+                number: 80
