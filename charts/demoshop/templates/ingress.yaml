@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: shop-ingress
+  name: {{ include "demoshop.name" $ }}-ingress
   namespace: {{ .Release.Namespace }}
   labels:
     {{ include "demoshop.labels" $ | nindent 4 }}

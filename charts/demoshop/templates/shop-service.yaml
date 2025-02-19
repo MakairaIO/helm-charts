@@ -6,7 +6,7 @@ metadata:
   labels:
     {{ include "demoshop.labels" $ | nindent 4 }}
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     {{ include "demoshop.selectorLabels" $ | nindent 6 }}
   ports:

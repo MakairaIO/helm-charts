@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: {{ include "demoshop.name" . }}-database
+  name: {{ include "demoshop.name" $ }}-database
   namespace: {{ .Release.Namespace }}
   labels:
-    {{- include "demoshop.labels" . | nindent 4 }}
+    {{- include "demoshop.labels" $ | nindent 4 }}
 spec:
-  serviceName: {{ include "demoshop.name" . }}-database
+  serviceName: {{ include "demoshop.name" $ }}-database
   replicas: 1
   selector:
     matchLabels:
-        {{ include "demoshop.selectorLabels" . | nindent 8 }}
+        {{ include "demoshop.selectorLabels" $ | nindent 8 }}
   template:
     metadata:
       annotations:
-        checksum/pull-secret: {{ include (print $.Template.BasePath "/image-pull-secret.yaml") . | sha256sum }}
+        checksum/pull-secret: {{ include (print $.Template.BasePath "/image-pull-secret.yaml") $ | sha256sum }}
       labels:
-        {{ include "demoshop.labels" . | nindent 8 }}
+        {{ include "demoshop.labels" $ | nindent 8 }}
     spec:
       imagePullSecrets:
         {{- range $pullSecret := .Values.imagePullSecrets }}
@@ -41,11 +41,11 @@ spec:
           ports:
           - containerPort: 3306
           volumeMounts:
-          - name: {{ include "demoshop.name" . }}-database-storage
+          - name: {{ include "demoshop.name" $ }}-database-storage
             mountPath: /var/lib/mysql
   volumeClaimTemplates:
     - metadata:
-        name: {{ include "demoshop.name" . }}-database-storage
+        name: {{ include "demoshop.name" $ }}-database-storage
       spec:
         accessModes: [ "ReadWriteOnce" ]
         resources:

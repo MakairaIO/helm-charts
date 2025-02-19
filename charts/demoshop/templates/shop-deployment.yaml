@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "demoshop.name" . }}
+  name: {{ include "demoshop.name" $ }}
   namespace: {{ .Release.Namespace }}
   labels:
     {{ include "demoshop.labels" $ | nindent 4 }}
@@ -13,8 +13,8 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/pull-secret: {{ include (print $.Template.BasePath "/image-pull-secret.yaml") . | sha256sum }}
-        checksum/config: {{ include (print $.Template.BasePath "/shop-configmap.yaml") . | sha256sum }}
+        checksum/pull-secret: {{ include (print $.Template.BasePath "/image-pull-secret.yaml") $ | sha256sum }}
+        checksum/config: {{ include (print $.Template.BasePath "/shop-configmap.yaml") $ | sha256sum }}
       labels:
         {{ include "demoshop.labels" $ | nindent 8 }}
     spec:
@@ -85,9 +85,9 @@ spec:
       volumes:
         - name: nginx-config
           configMap:
-            name: {{ include "demoshop.name" . }}-nginx-config
+            name: {{ include "demoshop.name" $ }}-nginx-config
         {{- if and (.Values.shop.sharedAssets.enabled) (.Values.shop.sharedAssets.storageClass) }}
         - name: shared-assets
           persistentVolumeClaim:
-            claimName: {{ include "demoshop.name" . }}-assets-pvc
+            claimName: {{ include "demoshop.name" $ }}-assets-pvc
         {{- end }}

@@ -1,12 +1,12 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: shop-cert
+  name: {{ include "demoshop.name" $ }}-cert
   namespace: {{ .Release.Namespace }}
   labels:
     {{ include "demoshop.labels" . | nindent 4 }}
 spec:
-  secretName: shop-tls
+  secretName: {{ include "demoshop.name" $ }}-tls
   issuerRef:
     name: letsencrypt
     kind: ClusterIssuer
