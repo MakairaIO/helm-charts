@@ -1,3 +1,10 @@
+# [demoshop-v1.5.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.4.12...demoshop-v1.5.0) (2025-02-21)
+
+
+### Features
+
+* Add setting to download a initial DB dump ([1189900](https://github.com/MakairaIO/helm-charts/commit/1189900f013e1288a107353d217e5680e6950dc6))
+
 # [demoshop-v1.4.12](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.4.11...demoshop-v1.4.12) (2025-02-20)
 
 
