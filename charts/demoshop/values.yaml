@@ -41,7 +41,7 @@ database:
   password: "password"
   rootPassword: "SetYourOwnRootPassword!"
   storageSize: "5Gi"
-  initialDumps:
-    - url: ""
-      auth: "" # Used in cURL "-u" option
-      userAgent: "" # Used to set the HTTP User-Agent
+  initialDumps: []
+#    - url: ""
+#      auth: "" # Used in cURL "-u" option
+#      userAgent: "" # Used to set the HTTP User-Agent
