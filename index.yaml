@@ -64,6 +64,17 @@ entries:
   demoshop:
   - apiVersion: v2
     appVersion: "1.0"
+    created: "2025-02-21T15:26:23.738441935Z"
+    description: A Helm chart for deploying a demo shop with PHP-FPM, Nginx, and a
+      database
+    digest: 14e02bd3817734a488c0f8b0f22e146b6a9476d142ca9a56297eb8a4cff8ca34
+    name: demoshop
+    type: application
+    urls:
+    - https://github.com/MakairaIO/helm-charts/releases/download/demoshop-v1.5.1/demoshop-1.5.1.tgz
+    version: 1.5.1
+  - apiVersion: v2
+    appVersion: "1.0"
     created: "2025-02-21T15:18:20.538605049Z"
     description: A Helm chart for deploying a demo shop with PHP-FPM, Nginx, and a
       database
@@ -1046,4 +1057,4 @@ entries:
     urls:
     - https://github.com/MakairaIO/helm-charts/releases/download/prometheus-exporter-v1.1.2/prometheus-exporter-1.1.2.tgz
     version: 1.1.2
-generated: "2025-02-21T15:18:20.539149912Z"
+generated: "2025-02-21T15:26:23.738755409Z"
