@@ -1,3 +1,10 @@
+# [demoshop-v1.5.1](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.5.0...demoshop-v1.5.1) (2025-02-21)
+
+
+### Bug Fixes
+
+* Default value for initial database dumps ([b54f9ed](https://github.com/MakairaIO/helm-charts/commit/b54f9edd0a0ab063993351cdf25ab24bb04fbe33))
+
 # [demoshop-v1.5.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.4.12...demoshop-v1.5.0) (2025-02-21)
 
 
