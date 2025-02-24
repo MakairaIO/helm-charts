@@ -17,6 +17,7 @@ spec:
         checksum/config: {{ include (print $.Template.BasePath "/shop-configmap.yaml") $ | sha256sum }}
       labels:
         {{ include "demoshop.labels" $ | nindent 8 }}
+        app.kubernetes.io/app: shop
     spec:
       imagePullSecrets:
         {{- range $pullSecret := .Values.imagePullSecrets }}

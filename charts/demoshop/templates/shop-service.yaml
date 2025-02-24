@@ -9,6 +9,7 @@ spec:
   type: ClusterIP
   selector:
     {{ include "demoshop.selectorLabels" $ | nindent 4 }}
+    app.kubernetes.io/app: shop
   ports:
     - protocol: TCP
       port: 80

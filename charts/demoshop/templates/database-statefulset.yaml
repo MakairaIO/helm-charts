@@ -17,6 +17,7 @@ spec:
         checksum/pull-secret: {{ include (print $.Template.BasePath "/image-pull-secret.yaml") $ | sha256sum }}
       labels:
         {{ include "demoshop.labels" $ | nindent 8 }}
+        app.kubernetes.io/app: database
     spec:
       imagePullSecrets:
         {{- range .Values.imagePullSecrets }}
