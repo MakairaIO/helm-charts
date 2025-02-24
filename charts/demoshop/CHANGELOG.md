@@ -1,3 +1,10 @@
+# [demoshop-v1.6.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.5.1...demoshop-v1.6.0) (2025-02-24)
+
+
+### Features
+
+* Add database service ([99306e6](https://github.com/MakairaIO/helm-charts/commit/99306e69d8841951c0d5c01b271e6ce8d05674d3))
+
 # [demoshop-v1.5.1](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.5.0...demoshop-v1.5.1) (2025-02-21)
 
 
