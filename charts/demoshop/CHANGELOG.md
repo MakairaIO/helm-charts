@@ -1,3 +1,10 @@
+# [demoshop-v1.7.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.6.0...demoshop-v1.7.0) (2025-02-24)
+
+
+### Features
+
+* Add app labels ([61e84d1](https://github.com/MakairaIO/helm-charts/commit/61e84d1399d7a7aa0b2311989245ea4ac52e05e2))
+
 # [demoshop-v1.6.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.5.1...demoshop-v1.6.0) (2025-02-24)
 
 
