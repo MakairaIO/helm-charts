@@ -45,7 +45,7 @@ spec:
           {{- with .Values.shop.image }}
           image: "{{ .name }}:{{ .tag }}"
           {{- end }}
-          command: [ "sh", "-c", "rsync -auL /assets/* /shared-assets"]
+          command: [ "sh", "-c", "rsync -auL /assets/* /shared-assets; chown -R 33:33 /shared-assets" ]
           volumeMounts:
             - name: shared-assets
               mountPath: /shared-assets
