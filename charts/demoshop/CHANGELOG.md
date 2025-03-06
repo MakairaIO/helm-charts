@@ -1,3 +1,10 @@
+# [demoshop-v1.8.2](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.8.1...demoshop-v1.8.2) (2025-03-06)
+
+
+### Bug Fixes
+
+* Remove namespace ([9dfa41a](https://github.com/MakairaIO/helm-charts/commit/9dfa41a03c72f1fdac9b6d5af933c0c3e03a2351))
+
 # [demoshop-v1.8.1](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.8.0...demoshop-v1.8.1) (2025-03-06)
 
 
