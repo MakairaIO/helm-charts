@@ -1,3 +1,10 @@
+# [demoshop-v1.8.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.7.0...demoshop-v1.8.0) (2025-03-06)
+
+
+### Features
+
+* Add support for initialisation commands ([aae84b6](https://github.com/MakairaIO/helm-charts/commit/aae84b670764c2a8a9132189f1039801b3b8b8ce))
+
 # [demoshop-v1.7.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.6.0...demoshop-v1.7.0) (2025-02-24)
 
 
