@@ -5,6 +5,8 @@ imagePullSecrets:
     repo: ""
     auth: ""
 
+imagePullPolicy: "IfNotPresent"
+
 shop:
   image:
     name: php
@@ -13,7 +15,8 @@ shop:
     enabled: false
     storageClass: ""
     storageSize: "5Gi"
-  envVars:
+  envVars: {}
+  initCommands: {}
 
 nginx:
   image:

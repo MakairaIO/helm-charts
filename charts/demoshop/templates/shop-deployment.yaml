@@ -28,6 +28,7 @@ spec:
       initContainers:
         - name: metakube-init
           image: busybox
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
           command: [sh, -c]
           args:
             - |
@@ -48,6 +49,22 @@ spec:
           volumeMounts:
             - name: shared-assets
               mountPath: /shared-assets
+        {{- end }}
+        {{- range $name, $command := .Values.shop.initCommands }}
+        {{- if and $name $command }}
+        - name: {{ $name }}
+          {{- with $.Values.shop.image }}
+          image: "{{ .name }}:{{ .tag }}"
+          {{- end }}
+          env:
+            {{- range $name, $value := $.Values.shop.envVars }}
+            - name: {{ $name }}
+              value: {{ $value }}
+            {{- end }}
+          command: [sh, -c]
+          args:
+            - {{ $command }}
+        {{- end }}
         {{- end }}
 
       containers:
