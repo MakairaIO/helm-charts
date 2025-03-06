@@ -1,3 +1,10 @@
+# [demoshop-v1.8.1](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.8.0...demoshop-v1.8.1) (2025-03-06)
+
+
+### Bug Fixes
+
+* Set owner ([82a1923](https://github.com/MakairaIO/helm-charts/commit/82a19235e59e2e7d8f5a1cb0cfe30fbcfc30aedb))
+
 # [demoshop-v1.8.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.7.0...demoshop-v1.8.0) (2025-03-06)
 
 
