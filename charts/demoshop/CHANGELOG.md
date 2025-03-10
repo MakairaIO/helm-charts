@@ -1,3 +1,10 @@
+# [demoshop-v1.9.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.8.2...demoshop-v1.9.0) (2025-03-10)
+
+
+### Features
+
+* Add customizable persistence ([fff3ae7](https://github.com/MakairaIO/helm-charts/commit/fff3ae76c0b70485f9e4522dbb2cd33887e30697))
+
 # [demoshop-v1.8.2](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.8.1...demoshop-v1.8.2) (2025-03-06)
 
 
