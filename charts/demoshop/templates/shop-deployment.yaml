@@ -22,7 +22,7 @@ spec:
       imagePullSecrets:
         {{- range $pullSecret := .Values.imagePullSecrets }}
         {{- if and $pullSecret.name $pullSecret.repo $pullSecret.auth }}
-        - name: {{ $pullSecret.name }}
+        - name: {{ include "demoshop.name" $ }}-{{ $pullSecret.name }}
         {{- end }}
         {{- end }}
       initContainers:
@@ -45,6 +45,7 @@ spec:
           {{- with .Values.shop.image }}
           image: "{{ .name }}:{{ .tag }}"
           {{- end }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
           command: [ "sh", "-c", "rsync -auL /assets/* /shared-assets; chown -R 33:33 /shared-assets" ]
           volumeMounts:
             - name: shared-assets
@@ -56,6 +57,7 @@ spec:
           {{- with $.Values.shop.image }}
           image: "{{ .name }}:{{ .tag }}"
           {{- end }}
+          imagePullPolicy: {{ $.Values.imagePullPolicy }}
           command: [ "sh", "-c", "rsync -auL {{ .path }}/* /copy/{{ .name }}; chown -R 33:33 /copy/{{ .name }}" ]
           volumeMounts:
             - name: {{ .name }}
@@ -68,6 +70,7 @@ spec:
           {{- with $.Values.shop.image }}
           image: "{{ .name }}:{{ .tag }}"
           {{- end }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
           env:
             {{- range $name, $value := $.Values.shop.envVars }}
             - name: {{ $name }}
@@ -84,6 +87,7 @@ spec:
         {{- with .Values.shop.image }}
         image: "{{ .name }}:{{ .tag }}"
         {{- end }}
+        imagePullPolicy: {{ .Values.imagePullPolicy }}
         ports:
         - containerPort: 9000
         env:
@@ -107,6 +111,7 @@ spec:
         {{- with .Values.nginx.image }}
         image: "{{ .name }}:{{ .tag }}"
         {{- end }}
+        imagePullPolicy: {{ .Values.imagePullPolicy }}
         ports:
         - containerPort: 80
         volumeMounts:

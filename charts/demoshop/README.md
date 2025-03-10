@@ -11,10 +11,28 @@ You need to create an application images based on a PHP-FPM image (e.g. php:8.4-
 | Parameter           | Type   | Default               | Description                                            |
 |---------------------|--------|-----------------------|--------------------------------------------------------|
 | `domain`            | string | `shop.k8s.makaira.io` | Domain under which the store is accessible.            |
-| `shop.iamge`        | string | `php:8.4-fpm`         | Full name of the image (including repository and tag). |
-| `shop.sharedAssets` | dict   |                       | Shared asset settings.                                 |
-| `shop.nginx`        | dict   |                       | Nginx settings                                         |
+| `imagePullSecrets`  | list   | `[]`                  | Image pull secrets to use.                             |
+| `imagePullPolicy`   | string | `Always`              | Pull policy for all images.                            |
+| `shop`              | dict   |                       | Shop settings                                          |
+| `nginx`             | dict   |                       | Nginx settings                                         |
 | `database`          | dict   |                       | Database settings                                      |
+
+### Image Pull Secrets (`imagePullSecrets`)
+| Parameter | Type   | Default | Description                        |
+|-----------|--------|---------|------------------------------------|
+| `name`    | string | `""`    | Name of the image pull secret.     |
+| `repo`    | string | `""`    | Repository to use the secret with. |
+| `auth`    | string | `""`    | Base64 encoded auth token.         |
+
+### Shop settings (`shop`)
+| Parameter      | Type   | Default     | Description                                             |
+|----------------|--------|-------------|---------------------------------------------------------|
+| `image.name`   | string | `"php"`     | Image repository and name                               |
+| `image.tag`    | string | `"8.4-fpm"` | Image tag                                               |
+| `sharedAssets` | dict   |             | Shared assets settings (see below)                      |
+| `envVars`      | dict   | `{}`        | Environment variables for the shop (as key-value pairs) |
+| `initCommands` | dict   | `{}`        | Commands to run on startup (as key-value pairs)         |
+| `persistence`  | list   | `[]`        | Persistent volume settings (as list of dict, see below) |
 
 ### Shared assets settings (`shop.sharedAssets`)
 | Parameter      | Type   | Default | Description                         |
@@ -23,28 +41,43 @@ You need to create an application images based on a PHP-FPM image (e.g. php:8.4-
 | `storageClass` | string | `""`    | Storage class for persistent volume |
 | `storageSize`  | string | `5Gi`   | Site for persistent volume          |
 
+### Persistent volume settings (`shop.persistence`)
+| Parameter      | Type   | Default | Description                  |
+|----------------|--------|---------|------------------------------|
+| `name`         | string |         | Name of the volume           |
+| `path`         | string |         | Path to mount the volume to  |
+| `storageClass` | string |         | Storage class for the volume |
+| `storageSize`  | string |         | Size of the volume           |
+
 ### Nginx settings (`nginx`)
-| Parameter   | Type   | Default                 | Description                                                    |
-|-------------|--------|-------------------------|----------------------------------------------------------------|
-| `image`     | string | `nginx:stable`          | Image to use for the Nginx container.                          |
-| `locations` | string | _Locations for FastCGI_ | Custom locations to finetune Nginx, see [Nginx documentation]. |
+| Parameter    | Type   | Default                 | Description                                                    |
+|--------------|--------|-------------------------|----------------------------------------------------------------|
+| `image.name` | string | `"nginx"`               | Image repository and name                                      |
+| `image.tag`  | string | `"stable"`              | Image tag                                                      |
+| `locations`  | string | _Locations for FastCGI_ | Custom locations to finetune Nginx, see [Nginx documentation]. |
 
 ### Database settings (`database`)
-| Parameter      | Type   | Default                   | Description                                           |
-|----------------|--------|---------------------------|-------------------------------------------------------|
-| `image`        | string | `mysql:8.0`               | Container image to use, can be `mysql` or `mariadb`.  |
-| `name`         | string | `database`                | Name of the database to create.                       |
-| `user`         | string | `username`                | Database user to create. **CHANGE THIS!**             |
-| `password`     | string | `password`                | Password for the database user. **CHANGE THIS!**      |
-| `rootPassword` | string | `SetYourOwnRootPassword!` | Password for the database root user. **CHANGE THIS!** |
-| `storageSize`  | string | `5Gi`                     | Size of the database persistent volume.               |
+| Parameter       | Type   | Default                   | Description                                           |
+|-----------------|--------|---------------------------|-------------------------------------------------------|
+| `image.name`    | string | `"mysql"`                 | Image repository and name                             |
+| `image.tag`     | string | `"8.0"`                   | Image tag                                             |
+| `name`          | string | `database`                | Name of the database to create.                       |
+| `user`          | string | `username`                | Database user to create. **CHANGE THIS!**             |
+| `password`      | string | `password`                | Password for the database user. **CHANGE THIS!**      |
+| `rootPassword`  | string | `SetYourOwnRootPassword!` | Password for the database root user. **CHANGE THIS!** |
+| `storageSize`   | string | `5Gi`                     | Size of the database persistent volume.               |
+| `initialsDumps` | list   | `[]`                      | List of initial dumps to import.                      |
 
+#### Initial dumps (`database.initialDumps`)
+| Parameter   | Type   | Default | Description                                                   |
+|-------------|--------|---------|---------------------------------------------------------------|
+| `url`       | string |         | URL to the dump file.                                         |
+| `auth`      | string |         | HTTP basic auth credentils (format: `<username>:<password>`). |
+| `userAgent` | string |         | User agent to use for the download.                           |
 
 ## Shared Assets
-You can serve static assets such as Stylesheets, JavaScript files, images or even generated files via Nginx directly.
-All you need to do is install `rsync`, copy some files and create some symbolic links.
-
-### Static Assets
-_tbd._
+You can serve assets such as Stylesheets, JavaScript files, images or even generated files via Nginx directly.
+To use this feature you need to install `rsync`. Copy all assets to `/assets` and create symbolic links to the copies
+at the source positions. The assets will be copied to a persistent volume and are served by Nginx directly.
 
 [Nginx documentation]: http://nginx.org/en/docs/http/ngx_http_core_module.html#location

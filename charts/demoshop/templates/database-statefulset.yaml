@@ -22,28 +22,29 @@ spec:
       imagePullSecrets:
         {{- range .Values.imagePullSecrets }}
         {{- if and .name .repo .auth }}
-        - name: {{ .name }}
+        - name: {{ include "demoshop.name" $ }}-{{ .name }}
         {{- end }}
         {{- end }}
       {{- if .Values.database.initialDumps }}
       initContainers:
-      {{- range .Values.database.initialDumps }}
+      {{- range $key, $dump := .Values.database.initialDumps }}
       {{- if .url }}
-        - name: database-dump-downloader
+        - name: database-dump-downloader-{{ $key }}
           image: alpine/curl:latest
+          imagePullPolicy: {{ $.Values.imagePullPolicy }}
           args:
-            - {{ .url }}
+            - {{ $dump.url }}
             - -sSLO
             - --remote-header-name
             - --output-dir
             - /docker-entrypoint-initdb.d/
-            {{- if .auth }}
+            {{- if $dump.auth }}
             - --user
-            - {{ .auth }}
+            - {{ $dump.auth }}
             {{- end }}
-            {{- if .userAgent }}
+            {{- if $dump.userAgent }}
             - --user-agent
-            - {{ .userAgent }}
+            - {{ $dump.userAgent }}
             {{- end }}
           volumeMounts:
             - mountPath: /docker-entrypoint-initdb.d
@@ -56,6 +57,7 @@ spec:
           {{- with .Values.database.image }}
           image: "{{ .name }}:{{ .tag }}"
           {{- end }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
           env:
           - name: MYSQL_ROOT_PASSWORD
             value: "{{ .Values.database.rootPassword }}"
