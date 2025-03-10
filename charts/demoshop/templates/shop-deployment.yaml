@@ -96,6 +96,12 @@ spec:
         - name: shared-assets
           mountPath: /assets
         {{- end }}
+        {{- range .Values.shop.persistence }}
+        {{- if .storageClass }}
+        - name: {{ .name }}
+          mountPath: {{ .path }}
+        {{- end }}
+        {{- end }}
 
       - name: nginx
         {{- with .Values.nginx.image }}
@@ -110,12 +116,6 @@ spec:
         {{- if and (.Values.shop.sharedAssets.enabled) (.Values.shop.sharedAssets.storageClass) }}
         - name: shared-assets
           mountPath: /var/www
-        {{- end }}
-        {{- range .Values.shop.persistence }}
-        {{- if .storageClass }}
-        - name: {{ .name }}
-          mountPath: {{ .path }}
-        {{- end }}
         {{- end }}
 
       volumes:
