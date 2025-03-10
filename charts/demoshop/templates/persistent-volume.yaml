@@ -13,3 +13,20 @@ spec:
       storage: "{{ .Values.shop.sharedAssets.storageSize }}"
 ---
 {{- end }}
+{{- range .Values.shop.persistence }}
+{{- if .storageClass }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "demoshop.name" $ }}-{{ .name }}
+  namespace: {{ $.Release.Namespace }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: "{{ .storageClass }}"
+  resources:
+    requests:
+      storage: "{{ .storageSize }}"
+---
+{{- end }}
+{{- end }}

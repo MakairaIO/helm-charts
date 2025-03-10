@@ -17,6 +17,7 @@ shop:
     storageSize: "5Gi"
   envVars: {}
   initCommands: {}
+  persistence: []
 
 nginx:
   image:
@@ -45,6 +46,3 @@ database:
   rootPassword: "SetYourOwnRootPassword!"
   storageSize: "5Gi"
   initialDumps: []
-#    - url: ""
-#      auth: "" # Used in cURL "-u" option
-#      userAgent: "" # Used to set the HTTP User-Agent

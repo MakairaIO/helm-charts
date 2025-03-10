@@ -50,6 +50,18 @@ spec:
             - name: shared-assets
               mountPath: /shared-assets
         {{- end }}
+        {{- range .Values.shop.persistence }}
+        {{- if .storageClass }}
+        - name: copy-{{ .name }}
+          {{- with $.Values.shop.image }}
+          image: "{{ .name }}:{{ .tag }}"
+          {{- end }}
+          command: [ "sh", "-c", "rsync -auL {{ .path }}/* /copy/{{ .name }}; chown -R 33:33 /copy/{{ .name }}" ]
+          volumeMounts:
+            - name: {{ .name }}
+              mountPath: /copy/{{ .name }}
+        {{- end }}
+        {{- end }}
         {{- range $name, $command := .Values.shop.initCommands }}
         {{- if and $name $command }}
         - name: {{ $name }}
@@ -99,6 +111,12 @@ spec:
         - name: shared-assets
           mountPath: /var/www
         {{- end }}
+        {{- range .Values.shop.persistence }}
+        {{- if .storageClass }}
+        - name: {{ .name }}
+          mountPath: {{ .path }}
+        {{- end }}
+        {{- end }}
 
       volumes:
         - name: nginx-config
@@ -108,4 +126,11 @@ spec:
         - name: shared-assets
           persistentVolumeClaim:
             claimName: {{ include "demoshop.name" $ }}-assets-pvc
+        {{- end }}
+        {{- range .Values.shop.persistence }}
+        {{- if .storageClass }}
+        - name: {{ .name }}
+          persistentVolumeClaim:
+            claimName: {{ include "demoshop.name" $ }}-{{ .name }}
+        {{- end }}
         {{- end }}
