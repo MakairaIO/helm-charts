@@ -1,3 +1,10 @@
+# [demoshop-v1.9.1](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.9.0...demoshop-v1.9.1) (2025-03-10)
+
+
+### Bug Fixes
+
+* Mount custom volumes on shop ([8bb74da](https://github.com/MakairaIO/helm-charts/commit/8bb74da75c89a916398429d8f156758e6cdf1a20))
+
 # [demoshop-v1.9.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.8.2...demoshop-v1.9.0) (2025-03-10)
 
 
