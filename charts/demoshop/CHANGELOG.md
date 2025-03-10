@@ -1,3 +1,10 @@
+# [demoshop-v1.10.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.9.1...demoshop-v1.10.0) (2025-03-10)
+
+
+### Features
+
+* Add more documentation ([afb6dfd](https://github.com/MakairaIO/helm-charts/commit/afb6dfd84d376e378be47d6970ce1dcfcaa17c37))
+
 # [demoshop-v1.9.1](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.9.0...demoshop-v1.9.1) (2025-03-10)
 
 
