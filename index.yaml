@@ -1,5 +1,16 @@
 apiVersion: v1
 entries:
+  cert-manager-cloudflare:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2025-04-23T12:19:21.098293977Z"
+    description: A Helm chart to add TLS certificate issuers to the cluster
+    digest: a8a6c25494a4b03b86a548b137ac1554d610f59a3e7815616c5611407ce984ca
+    name: cert-manager-cloudflare
+    type: application
+    urls:
+    - https://github.com/MakairaIO/helm-charts/releases/download/cert-manager-cloudflare-v1.2.0/cert-manager-cloudflare-1.2.0.tgz
+    version: 1.2.0
   copy-database:
   - apiVersion: v2
     appVersion: 1.0.0
@@ -1145,4 +1156,4 @@ entries:
     urls:
     - https://github.com/MakairaIO/helm-charts/releases/download/prometheus-exporter-v1.1.2/prometheus-exporter-1.1.2.tgz
     version: 1.1.2
-generated: "2025-03-10T14:57:16.991197849Z"
+generated: "2025-04-23T12:19:21.098943853Z"
