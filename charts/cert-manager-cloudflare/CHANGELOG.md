@@ -1,3 +1,10 @@
+# [cert-manager-cloudflare-v1.2.0](https://github.com/MakairaIO/helm-charts/compare/cert-manager-cloudflare-v1.1.0...cert-manager-cloudflare-v1.2.0) (2025-04-23)
+
+
+### Features
+
+* Decrease version ([6b89eb6](https://github.com/MakairaIO/helm-charts/commit/6b89eb676b347b249a3b24ce03fe46781826585a))
+
 # [cert-manager-cloudflare-v1.1.0](https://github.com/MakairaIO/helm-charts/compare/cert-manager-cloudflare-v1.0.0...cert-manager-cloudflare-v1.1.0) (2025-04-23)
 
 
