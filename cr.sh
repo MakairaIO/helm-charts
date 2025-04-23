@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 DEFAULT_CHART_RELEASER_VERSION=v1.4.0
 
