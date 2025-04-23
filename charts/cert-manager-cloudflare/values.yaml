@@ -1,0 +1,11 @@
+apiToken: "" # Token for Cloudflare API
+adminEmail: "" # Email of the admin user
+
+issuers:
+  - name: le
+    url: https://acme-v02.api.letsencrypt.org/directory
+    email: makaira@scale.sc
+
+  - name: le-staging
+    url: https://acme-staging-v02.api.letsencrypt.org/directory
+    email: makaira@scale.sc
