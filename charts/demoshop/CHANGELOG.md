@@ -1,3 +1,10 @@
+# [demoshop-v1.10.1](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.10.0...demoshop-v1.10.1) (2025-05-06)
+
+
+### Bug Fixes
+
+* **Demoshop:** Quote env vars ([3e11c93](https://github.com/MakairaIO/helm-charts/commit/3e11c93c5368ab6c49c2502ec7df231af8183e36))
+
 # [demoshop-v1.10.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.9.1...demoshop-v1.10.0) (2025-03-10)
 
 
