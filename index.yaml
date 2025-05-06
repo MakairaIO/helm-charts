@@ -3,6 +3,16 @@ entries:
   cert-manager-cloudflare:
   - apiVersion: v2
     appVersion: "1.0"
+    created: "2025-05-06T07:47:51.754083526Z"
+    description: A Helm chart to add TLS certificate issuers to the cluster
+    digest: 233b0efc4eb54c5111905c8dd402d98ce744a44deab623e805467834e7ab422d
+    name: cert-manager-cloudflare
+    type: application
+    urls:
+    - https://github.com/MakairaIO/helm-charts/releases/download/cert-manager-cloudflare-v1.2.1/cert-manager-cloudflare-1.2.1.tgz
+    version: 1.2.1
+  - apiVersion: v2
+    appVersion: "1.0"
     created: "2025-04-23T12:19:21.098293977Z"
     description: A Helm chart to add TLS certificate issuers to the cluster
     digest: a8a6c25494a4b03b86a548b137ac1554d610f59a3e7815616c5611407ce984ca
@@ -73,6 +83,17 @@ entries:
     - https://github.com/MakairaIO/helm-charts/releases/download/copy-database-v1.1.0/copy-database-1.1.0.tgz
     version: 1.1.0
   demoshop:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2025-05-06T07:47:51.936751451Z"
+    description: A Helm chart for deploying a demo shop with PHP-FPM, Nginx, and a
+      database
+    digest: fbf1ec83fec9e5fb405cb5b0b3138ea85e7d2b70c1860787ca352da11eeee5b3
+    name: demoshop
+    type: application
+    urls:
+    - https://github.com/MakairaIO/helm-charts/releases/download/demoshop-v1.10.1/demoshop-1.10.1.tgz
+    version: 1.10.1
   - apiVersion: v2
     appVersion: "1.0"
     created: "2025-03-10T14:57:16.990694331Z"
@@ -1156,4 +1177,4 @@ entries:
     urls:
     - https://github.com/MakairaIO/helm-charts/releases/download/prometheus-exporter-v1.1.2/prometheus-exporter-1.1.2.tgz
     version: 1.1.2
-generated: "2025-04-23T12:19:21.098943853Z"
+generated: "2025-05-06T07:47:51.937217417Z"
