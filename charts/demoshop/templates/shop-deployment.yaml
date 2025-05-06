@@ -74,7 +74,7 @@ spec:
           env:
             {{- range $name, $value := $.Values.shop.envVars }}
             - name: {{ $name }}
-              value: {{ $value }}
+              value: {{ $value | quote }}
             {{- end }}
           command: [sh, -c]
           args:
@@ -93,7 +93,7 @@ spec:
         env:
           {{- range $name, $value := .Values.shop.envVars }}
           - name: {{ $name }}
-            value: {{ $value }}
+            value: {{ $value | quote }}
           {{- end }}
         volumeMounts:
         {{- if and (.Values.shop.sharedAssets.enabled) (.Values.shop.sharedAssets.storageClass) }}

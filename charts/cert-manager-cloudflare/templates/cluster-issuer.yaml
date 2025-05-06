@@ -10,7 +10,7 @@ metadata:
 spec:
   acme:
     email: {{ $.Values.adminEmail }}
-    server: {{.url }}
+    server: {{ .url }}
     privateKeySecretRef:
       name: {{ .name }}-issuer-account-key
     solvers:
