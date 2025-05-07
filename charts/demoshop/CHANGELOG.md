@@ -1,3 +1,10 @@
+# [demoshop-v1.10.2](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.10.1...demoshop-v1.10.2) (2025-05-07)
+
+
+### Bug Fixes
+
+* **Demoshops:** Change indents ([e3338f9](https://github.com/MakairaIO/helm-charts/commit/e3338f9b023e57c7de744bda09c7f3243186be3d))
+
 # [demoshop-v1.10.1](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.10.0...demoshop-v1.10.1) (2025-05-06)
 
 
