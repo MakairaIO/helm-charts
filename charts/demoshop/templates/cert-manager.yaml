@@ -14,3 +14,4 @@ spec:
   commonName: "{{ .Values.domain }}"
   dnsNames:
     - "{{ .Values.domain }}"
+---

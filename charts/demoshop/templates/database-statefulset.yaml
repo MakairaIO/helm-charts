@@ -4,7 +4,7 @@ metadata:
   name: {{ include "demoshop.name" $ }}-database
   namespace: {{ .Release.Namespace }}
   labels:
-    {{- include "demoshop.labels" $ | nindent 4 }}
+    {{ include "demoshop.labels" $ | nindent 4 }}
 spec:
   serviceName: {{ include "demoshop.name" $ }}-database
   replicas: 1
@@ -59,14 +59,14 @@ spec:
           {{- end }}
           imagePullPolicy: {{ .Values.imagePullPolicy }}
           env:
-          - name: MYSQL_ROOT_PASSWORD
-            value: "{{ .Values.database.rootPassword | quote }}"
-          - name: MYSQL_DATABASE
-            value: "{{ .Values.database.name | quote }}"
-          - name: MYSQL_USER
-            value: "{{ .Values.database.user | quote }}"
-          - name: MYSQL_PASSWORD
-            value: "{{ .Values.database.password | quote }}"
+            - name: MYSQL_ROOT_PASSWORD
+              value: "{{ .Values.database.rootPassword | quote }}"
+            - name: MYSQL_DATABASE
+              value: "{{ .Values.database.name | quote }}"
+            - name: MYSQL_USER
+              value: "{{ .Values.database.user | quote }}"
+            - name: MYSQL_PASSWORD
+              value: "{{ .Values.database.password | quote }}"
           ports:
             - containerPort: 3306
           volumeMounts:
@@ -89,3 +89,4 @@ spec:
         resources:
           requests:
             storage: "{{ .Values.database.storageSize }}"
+---

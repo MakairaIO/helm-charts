@@ -24,3 +24,4 @@ spec:
               name: {{ include "demoshop.name" $ }}-service
               port:
                 number: 80
+---

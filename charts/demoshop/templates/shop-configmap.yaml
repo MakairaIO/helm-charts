@@ -18,5 +18,6 @@ data:
             return 200 "OK";
         }
 
-        {{- .Values.nginx.locations | nindent 8 }}
+        {{ .Values.nginx.locations | nindent 8 }}
     }
+---
