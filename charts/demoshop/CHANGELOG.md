@@ -1,3 +1,10 @@
+# [demoshop-v1.10.3](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.10.2...demoshop-v1.10.3) (2025-05-07)
+
+
+### Bug Fixes
+
+* **Demoshop:** Remove double quotes ([1fe8ad4](https://github.com/MakairaIO/helm-charts/commit/1fe8ad40aa75a62e91b6ad7cb448dd47a57dbce9))
+
 # [demoshop-v1.10.2](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.10.1...demoshop-v1.10.2) (2025-05-07)
 
 
