@@ -1,3 +1,10 @@
+# [demoshop-v1.10.4](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.10.3...demoshop-v1.10.4) (2025-05-08)
+
+
+### Bug Fixes
+
+* **Demoshop:** Replace relative values path with absolute ones ([19568ba](https://github.com/MakairaIO/helm-charts/commit/19568badd3978bbae7e2b4f8cc46ee92fe718dc4))
+
 # [demoshop-v1.10.3](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.10.2...demoshop-v1.10.3) (2025-05-07)
 
 
