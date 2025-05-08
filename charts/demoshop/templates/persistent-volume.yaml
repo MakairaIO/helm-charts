@@ -1,19 +1,19 @@
-{{- if and (.Values.shop.sharedAssets.enabled) (.Values.shop.sharedAssets.storageClass) }}
+{{- if and ($.Values.shop.sharedAssets.enabled) ($.Values.shop.sharedAssets.storageClass) }}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: {{ include "demoshop.name" $ }}-assets-pvc
-  namespace: {{ .Release.Namespace }}
+  namespace: {{ $.Release.Namespace }}
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: "{{ .Values.shop.sharedAssets.storageClass }}"
+  storageClassName: "{{ $.Values.shop.sharedAssets.storageClass }}"
   resources:
     requests:
-      storage: "{{ .Values.shop.sharedAssets.storageSize }}"
+      storage: "{{ $.Values.shop.sharedAssets.storageSize }}"
 ---
 {{- end }}
-{{- range .Values.shop.persistence }}
+{{- range $.Values.shop.persistence }}
 {{- if .storageClass }}
 apiVersion: v1
 kind: PersistentVolumeClaim

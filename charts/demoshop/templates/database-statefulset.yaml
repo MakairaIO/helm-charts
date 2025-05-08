@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: {{ include "demoshop.name" $ }}-database
-  namespace: {{ .Release.Namespace }}
+  namespace: {{ $.Release.Namespace }}
   labels:
     {{ include "demoshop.labels" $ | nindent 4 }}
 spec:
@@ -20,14 +20,14 @@ spec:
         app.kubernetes.io/app: database
     spec:
       imagePullSecrets:
-        {{- range .Values.imagePullSecrets }}
+        {{- range $.Values.imagePullSecrets }}
         {{- if and .name .repo .auth }}
         - name: {{ include "demoshop.name" $ }}-{{ .name }}
         {{- end }}
         {{- end }}
-      {{- if .Values.database.initialDumps }}
+      {{- if $.Values.database.initialDumps }}
       initContainers:
-      {{- range $key, $dump := .Values.database.initialDumps }}
+      {{- range $key, $dump := $.Values.database.initialDumps }}
       {{- if .url }}
         - name: database-dump-downloader-{{ $key }}
           image: alpine/curl:latest
@@ -54,29 +54,29 @@ spec:
       {{- end }}
       containers:
         - name: database
-          {{- with .Values.database.image }}
+          {{- with $.Values.database.image }}
           image: "{{ .name }}:{{ .tag }}"
           {{- end }}
-          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          imagePullPolicy: {{ $.Values.imagePullPolicy }}
           env:
             - name: MYSQL_ROOT_PASSWORD
-              value: {{ .Values.database.rootPassword | quote }}
+              value: {{ $.Values.database.rootPassword | quote }}
             - name: MYSQL_DATABASE
-              value: {{ .Values.database.name | quote }}
+              value: {{ $.Values.database.name | quote }}
             - name: MYSQL_USER
-              value: {{ .Values.database.user | quote }}
+              value: {{ $.Values.database.user | quote }}
             - name: MYSQL_PASSWORD
-              value: {{ .Values.database.password | quote }}
+              value: {{ $.Values.database.password | quote }}
           ports:
             - containerPort: 3306
           volumeMounts:
             - name: {{ include "demoshop.name" $ }}-database-storage
               mountPath: /var/lib/mysql
-        {{- if .Values.database.initialDumps }}
+        {{- if $.Values.database.initialDumps }}
             - mountPath: /docker-entrypoint-initdb.d
               name: {{ include "demoshop.name" $ }}-db-init
         {{- end }}
-      {{- if .Values.database.initialDumps }}
+      {{- if $.Values.database.initialDumps }}
       volumes:
         - name: {{ include "demoshop.name" $ }}-db-init
           emptyDir: {}
@@ -88,5 +88,5 @@ spec:
         accessModes: [ "ReadWriteOnce" ]
         resources:
           requests:
-            storage: "{{ .Values.database.storageSize }}"
+            storage: "{{ $.Values.database.storageSize }}"
 ---

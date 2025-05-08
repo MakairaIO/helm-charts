@@ -2,7 +2,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: {{ include "demoshop.name" $ }}-cert
-  namespace: {{ .Release.Namespace }}
+  namespace: {{ $.Release.Namespace }}
   labels:
     {{ include "demoshop.labels" . | nindent 4 }}
 spec:
@@ -11,7 +11,7 @@ spec:
     group: cert-manager.io
     kind: ClusterIssuer
     name: le-issuer
-  commonName: "{{ .Values.domain }}"
+  commonName: "{{ $.Values.domain }}"
   dnsNames:
-    - "{{ .Values.domain }}"
+    - "{{ $.Values.domain }}"
 ---
