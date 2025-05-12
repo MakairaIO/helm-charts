@@ -1,3 +1,15 @@
+# [demoshop-v2.0.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.10.4...demoshop-v2.0.0) (2025-05-12)
+
+
+### Features
+
+* **Demoshop:** Refactor init commands ([8c8b84a](https://github.com/MakairaIO/helm-charts/commit/8c8b84a9f043f3b946d3c5a27832b0b6cc0dae28))
+
+
+### BREAKING CHANGES
+
+* **Demoshop:** The old "key-value" style init commands do no longer work and they must be changed.
+
 # [demoshop-v1.10.4](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.10.3...demoshop-v1.10.4) (2025-05-08)
 
 
