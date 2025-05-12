@@ -31,7 +31,7 @@ You need to create an application images based on a PHP-FPM image (e.g. php:8.4-
 | `image.tag`    | string | `"8.4-fpm"` | Image tag                                               |
 | `sharedAssets` | dict   |             | Shared assets settings (see below)                      |
 | `envVars`      | dict   | `{}`        | Environment variables for the shop (as key-value pairs) |
-| `initCommands` | dict   | `{}`        | Commands to run on startup (as key-value pairs)         |
+| `initCommands` | dict   | `[]`        | Commands to run on startup (see below)                  |
 | `persistence`  | list   | `[]`        | Persistent volume settings (as list of dict, see below) |
 
 ### Shared assets settings (`shop.sharedAssets`)
@@ -40,6 +40,39 @@ You need to create an application images based on a PHP-FPM image (e.g. php:8.4-
 | `enabled`      | bool   | `false` | Enable the feature                  |
 | `storageClass` | string | `""`    | Storage class for persistent volume |
 | `storageSize`  | string | `5Gi`   | Site for persistent volume          |
+
+### Init commands (`shop.initCommands`)
+| Parameter | Type   | Default | Description                |
+|-----------|--------|---------|----------------------------|
+| `name`    | string |         | Name of the command        |
+| `user`    | string |         | User to run the command as |
+| `command` | string |         | Command to run on startup  |
+
+#### Example
+If you need to run several commands in sequence, just use the default command splitter `;`:
+```yaml
+shop:
+  initCommands:
+    - name: "init-composer"
+      command: "composer install --no-dev --prefer-dist --no-scripts --no-progress --no-interaction; php bin/console cache:clear"
+```
+
+Init commands are run as the default user (usually "root") of the container.
+```yaml
+shop:
+  initCommands:
+    - name: "migrate-db"
+      command: "php bin/console doctrine migration migrate --no-interaction"
+```
+
+You can specify a different user for the command by setting the `user` field:
+```yaml
+shop:
+  initCommands:
+    - name: "init-composer"
+      user: "www-data"
+      command: "composer install --no-dev --prefer-dist --no-scripts --no-progress --no-interaction"
+```
 
 ### Persistent volume settings (`shop.persistence`)
 | Parameter      | Type   | Default | Description                  |

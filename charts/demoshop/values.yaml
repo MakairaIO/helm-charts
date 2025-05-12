@@ -16,7 +16,7 @@ shop:
     storageClass: ""
     storageSize: "5Gi"
   envVars: {}
-  initCommands: {}
+  initCommands: []
   persistence: []
 
 nginx:

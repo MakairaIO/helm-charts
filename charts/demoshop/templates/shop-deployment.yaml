@@ -64,9 +64,9 @@ spec:
               mountPath: /copy/{{ .name }}
         {{- end }}
         {{- end }}
-        {{- range $name, $command := $.Values.shop.initCommands }}
-        {{- if and $name $command }}
-        - name: {{ $name }}
+        {{- range $.Values.shop.initCommands }}
+        {{- if and .name .command }}
+        - name: {{ .name }}
           {{- with $.Values.shop.image }}
           image: "{{ .name }}:{{ .tag }}"
           {{- end }}
@@ -76,9 +76,13 @@ spec:
             - name: {{ $name }}
               value: {{ $value | quote }}
             {{- end }}
-          command: [sh, -c]
+          {{- if and .user (ne .user "root") }}
+          command: ["su", "-s", "/bin/sh", "{{ .user }}", "-c"]
+          {{- else }}
+          command: ["/bin/sh", "-c"]
+          {{- end }}
           args:
-            - {{ $command }}
+            - {{ .command }}
         {{- end }}
         {{- end }}
 
