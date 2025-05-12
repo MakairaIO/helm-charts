@@ -40,7 +40,7 @@ spec:
             runAsGroup: 0
             privileged: true
 
-        {{ if and $.Values.shop.sharedAssets.enabled $.Values.shop.sharedAssets.storageClass }}
+        {{- if and $.Values.shop.sharedAssets.enabled $.Values.shop.sharedAssets.storageClass }}
         - name: copy-shared-assets
           {{- with $.Values.shop.image }}
           image: "{{ .name }}:{{ .tag }}"
@@ -62,6 +62,10 @@ spec:
           volumeMounts:
             - name: {{ .name }}
               mountPath: /copy/{{ .name }}
+          {{- if and $.Values.shop.sharedAssets.enabled $.Values.shop.sharedAssets.storageClass }}
+            - name: shared-assets
+              mountPath: /assets
+          {{- end }}
         {{- end }}
         {{- end }}
         {{- range $.Values.shop.initCommands }}
