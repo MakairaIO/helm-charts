@@ -1,3 +1,10 @@
+# [demoshop-v2.0.1](https://github.com/MakairaIO/helm-charts/compare/demoshop-v2.0.0...demoshop-v2.0.1) (2025-05-12)
+
+
+### Bug Fixes
+
+* **Demoshops:** Mount shared assets to every init command ([13c65c8](https://github.com/MakairaIO/helm-charts/commit/13c65c899f7af2fc2a51c88573eead1332afdd0c))
+
 # [demoshop-v2.0.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v1.10.4...demoshop-v2.0.0) (2025-05-12)
 
 
