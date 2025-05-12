@@ -62,10 +62,6 @@ spec:
           volumeMounts:
             - name: {{ .name }}
               mountPath: /copy/{{ .name }}
-          {{- if and $.Values.shop.sharedAssets.enabled $.Values.shop.sharedAssets.storageClass }}
-            - name: shared-assets
-              mountPath: /assets
-          {{- end }}
         {{- end }}
         {{- end }}
         {{- range $.Values.shop.initCommands }}
@@ -87,6 +83,11 @@ spec:
           {{- end }}
           args:
             - {{ .command }}
+        {{- if and $.Values.shop.sharedAssets.enabled $.Values.shop.sharedAssets.storageClass }}
+          volumeMounts:
+            - name: shared-assets
+              mountPath: /assets
+        {{- end }}
         {{- end }}
         {{- end }}
 
