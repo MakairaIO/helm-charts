@@ -1,3 +1,10 @@
+# [demoshop-v2.0.2](https://github.com/MakairaIO/helm-charts/compare/demoshop-v2.0.1...demoshop-v2.0.2) (2025-05-12)
+
+
+### Bug Fixes
+
+* **Demoshops:** Move volume mount ([0c70a5e](https://github.com/MakairaIO/helm-charts/commit/0c70a5ec51fe4b838342e85bf100e853f5f389f1))
+
 # [demoshop-v2.0.1](https://github.com/MakairaIO/helm-charts/compare/demoshop-v2.0.0...demoshop-v2.0.1) (2025-05-12)
 
 
