@@ -1,3 +1,10 @@
+# [demoshop-v2.1.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v2.0.2...demoshop-v2.1.0) (2025-05-12)
+
+
+### Features
+
+* **Demoshops:** Add support for Unix domain sockets ([2d906af](https://github.com/MakairaIO/helm-charts/commit/2d906af9dea300e548e9c048b6607edfb5f7f314))
+
 # [demoshop-v2.0.2](https://github.com/MakairaIO/helm-charts/compare/demoshop-v2.0.1...demoshop-v2.0.2) (2025-05-12)
 
 
