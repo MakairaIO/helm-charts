@@ -113,4 +113,11 @@ You can serve assets such as Stylesheets, JavaScript files, images or even gener
 To use this feature you need to install `rsync`. Copy all assets to `/assets` and create symbolic links to the copies
 at the source positions. The assets will be copied to a persistent volume and are served by Nginx directly.
 
+## Nginx hints
+There will be an empty volume mounted to `/sockets` in the shop container. This can be used to use Unix domain sockets,
+instead of TCP sockets.
+There are two upstreams defined in the Nginx configuration:
+- `app-socket` is a Unix domain socket at `/sockets/app.sock`
+- `app-tcp` is a TCP socket at `localhost:9000`
+
 [Nginx documentation]: http://nginx.org/en/docs/http/ngx_http_core_module.html#location

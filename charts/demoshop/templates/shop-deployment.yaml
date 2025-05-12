@@ -39,7 +39,15 @@ spec:
             runAsUser: 0
             runAsGroup: 0
             privileged: true
-
+        - name: init-unix-domain-socket
+          image: busybox
+          imagePullPolicy: {{ $.Values.imagePullPolicy }}
+          command: [sh, -c]
+          args:
+              - chown -R 33:33 /sockets
+          volumeMounts:
+            - name: sockets
+              mountPath: /sockets
         {{- if and $.Values.shop.sharedAssets.enabled $.Values.shop.sharedAssets.storageClass }}
         - name: copy-shared-assets
           {{- with $.Values.shop.image }}
@@ -105,16 +113,18 @@ spec:
             value: {{ $value | quote }}
           {{- end }}
         volumeMounts:
-        {{- if and ($.Values.shop.sharedAssets.enabled) ($.Values.shop.sharedAssets.storageClass) }}
-        - name: shared-assets
-          mountPath: /assets
-        {{- end }}
-        {{- range $.Values.shop.persistence }}
-        {{- if .storageClass }}
-        - name: {{ .name }}
-          mountPath: {{ .path }}
-        {{- end }}
-        {{- end }}
+          - name: sockets
+            mountPath: /sockets
+          {{- if and ($.Values.shop.sharedAssets.enabled) ($.Values.shop.sharedAssets.storageClass) }}
+          - name: shared-assets
+            mountPath: /assets
+          {{- end }}
+          {{- range $.Values.shop.persistence }}
+          {{- if .storageClass }}
+          - name: {{ .name }}
+            mountPath: {{ .path }}
+          {{- end }}
+          {{- end }}
 
       - name: nginx
         {{- with $.Values.nginx.image }}
@@ -124,15 +134,19 @@ spec:
         ports:
         - containerPort: 80
         volumeMounts:
-        - name: nginx-config
-          mountPath: /etc/nginx/conf.d/default.conf
-          subPath: default.conf
-        {{- if and ($.Values.shop.sharedAssets.enabled) ($.Values.shop.sharedAssets.storageClass) }}
-        - name: shared-assets
-          mountPath: /var/www
-        {{- end }}
+          - name: sockets
+            mountPath: /sockets
+          - name: nginx-config
+            mountPath: /etc/nginx/conf.d/default.conf
+            subPath: default.conf
+          {{- if and ($.Values.shop.sharedAssets.enabled) ($.Values.shop.sharedAssets.storageClass) }}
+          - name: shared-assets
+            mountPath: /var/www
+          {{- end }}
 
       volumes:
+        - name: sockets
+          emptyDir: {}
         - name: nginx-config
           configMap:
             name: {{ include "demoshop.name" $ }}-nginx-config

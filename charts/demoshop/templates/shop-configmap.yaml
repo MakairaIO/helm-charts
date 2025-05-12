@@ -7,6 +7,14 @@ metadata:
     {{ include "demoshop.labels" $ | nindent 4 }}
 data:
   default.conf: |-
+    upstream app-socket {
+        server unix:/sockets/app.sock;
+    }
+
+    upstream app-tcp {
+        server localhost:9000;
+    }
+
     server {
         server_tokens off;
         listen 80;
