@@ -1,3 +1,10 @@
+# [demoshop-v2.2.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v2.1.0...demoshop-v2.2.0) (2025-05-27)
+
+
+### Features
+
+* **Demoshops:** Set update strategy for shop and db ([71f0577](https://github.com/MakairaIO/helm-charts/commit/71f057744ba6bb08bd7be1404f3fb23ffe61d628))
+
 # [demoshop-v2.1.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v2.0.2...demoshop-v2.1.0) (2025-05-12)
 
 
