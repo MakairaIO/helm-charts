@@ -8,6 +8,10 @@ metadata:
 spec:
   serviceName: {{ include "demoshop.name" $ }}-database
   replicas: 1
+  updateStrategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
   selector:
     matchLabels:
         {{ include "demoshop.selectorLabels" $ | nindent 8 }}
