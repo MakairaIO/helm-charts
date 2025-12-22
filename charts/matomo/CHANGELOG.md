@@ -1,3 +1,10 @@
+# [matomo-v1.17.3](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.17.2...matomo-v1.17.3) (2025-12-22)
+
+
+### Bug Fixes
+
+* depracation api ([270cd77](https://github.com/MakairaIO/helm-charts/commit/270cd7780b616a4dfeb9319a430545c715493d2c))
+
 # [matomo-v1.17.2](https://github.com/MakairaIO/helm-charts/compare/matomo-v1.17.1...matomo-v1.17.2) (2024-09-24)
 
 
