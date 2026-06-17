@@ -8,10 +8,10 @@ metadata:
 spec:
   serviceName: {{ include "demoshop.name" $ }}-database
   replicas: 1
-  updateStrategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 1
+  # NOTE: no updateStrategy.rollingUpdate.maxUnavailable here — that is an alpha
+  # StatefulSet field (MaxUnavailableStatefulSet feature gate) which the API server
+  # silently strips on clusters without the gate, causing a permanent GitOps drift.
+  # A single-replica DB gains nothing from it; rely on the default RollingUpdate.
   selector:
     matchLabels:
         {{ include "demoshop.selectorLabels" $ | nindent 8 }}
