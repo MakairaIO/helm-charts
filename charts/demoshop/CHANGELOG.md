@@ -1,3 +1,10 @@
+# [demoshop-v2.3.1](https://github.com/MakairaIO/helm-charts/compare/demoshop-v2.3.0...demoshop-v2.3.1) (2026-06-17)
+
+
+### Bug Fixes
+
+* **demoshop:** drop alpha maxUnavailable from db StatefulSet ([d3bcdcf](https://github.com/MakairaIO/helm-charts/commit/d3bcdcfc1ed219eb07a17b618cb9963d147359c1))
+
 # [demoshop-v2.3.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v2.2.0...demoshop-v2.3.0) (2026-06-17)
 
 
