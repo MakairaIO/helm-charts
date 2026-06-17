@@ -1,5 +1,11 @@
 domain: "shop.k8s.makaira.io"
 
+ingress:
+  # Set enabled: false to let the Ingress be managed elsewhere (e.g. a central chart).
+  enabled: true
+  # IngressClass to use. Defaults to "nginx"; set to "nginx-f5" for the F5 controller.
+  className: nginx
+
 imagePullSecrets:
   - name: ""
     repo: ""
