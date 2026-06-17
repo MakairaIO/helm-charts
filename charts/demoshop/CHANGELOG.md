@@ -1,3 +1,10 @@
+# [demoshop-v2.3.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v2.2.0...demoshop-v2.3.0) (2026-06-17)
+
+
+### Features
+
+* **demoshop:** make ingress class configurable and add enable toggle ([3649db9](https://github.com/MakairaIO/helm-charts/commit/3649db94ad3d35f2b1d47b98398c9bd8b4effd78))
+
 # [demoshop-v2.2.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v2.1.0...demoshop-v2.2.0) (2025-05-27)
 
 
