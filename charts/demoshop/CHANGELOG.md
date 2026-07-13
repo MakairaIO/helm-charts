@@ -1,3 +1,10 @@
+# [demoshop-v2.4.0](https://github.com/MakairaIO/helm-charts/compare/demoshop-v2.3.1...demoshop-v2.4.0) (2026-07-13)
+
+
+### Features
+
+* **demoshop:** optional postStart command on shop container ([#67](https://github.com/MakairaIO/helm-charts/issues/67)) ([ae9f1bf](https://github.com/MakairaIO/helm-charts/commit/ae9f1bf64f7a98e5c8d5285426ccac639f072902))
+
 # [demoshop-v2.3.1](https://github.com/MakairaIO/helm-charts/compare/demoshop-v2.3.0...demoshop-v2.3.1) (2026-06-17)
 
 
