@@ -24,6 +24,11 @@ shop:
   envVars: {}
   initCommands: []
   persistence: []
+  # Optional shell command run as a postStart lifecycle hook in the shop
+  # container. Left empty by default (no lifecycle hook is rendered). Useful to
+  # reconcile ephemeral install state on start, e.g. regenerate JWT keys or
+  # recreate an install lock file.
+  postStartCommand: ""
 
 nginx:
   image:

@@ -127,6 +127,12 @@ spec:
             mountPath: {{ .path }}
           {{- end }}
           {{- end }}
+        {{- with $.Values.shop.postStartCommand }}
+        lifecycle:
+          postStart:
+            exec:
+              command: ["/bin/sh", "-c", {{ . | quote }}]
+        {{- end }}
 
       - name: nginx
         {{- with $.Values.nginx.image }}
