@@ -3,10 +3,10 @@ dependencies:
   repository: https://library-charts.k8s-at-home.com
   version: 4.5.2
 - name: mariadb
-  repository: https://charts.bitnami.com/bitnami
-  version: 11.0.12
+  repository: https://cloudpirates-io.github.io/helm-charts
+  version: 0.16.5
 - name: redis
-  repository: https://charts.bitnami.com/bitnami
-  version: 16.12.0
-digest: sha256:485d25bbf01ae424d3823af5bbed317aecb5b31fd5015f3427d18b539e669d70
-generated: "2022-08-18T14:32:47.405936+02:00"
+  repository: https://cloudpirates-io.github.io/helm-charts
+  version: 0.30.4
+digest: sha256:dbad1a4188b36580616206f0e49af4372fac0f011560afe0ccfdee32086168e5
+generated: "2026-06-18T13:45:53.501590865+02:00"

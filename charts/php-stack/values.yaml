@@ -129,37 +129,40 @@ podSecurityContext: {}
 
 securityContext: {}
 
+# MariaDB: cloudpirates/mariadb (official docker.io/mariadb image).
+# NOTE: schema differs from the old bitnami subchart — `primary.*` is flattened to
+# top-level `persistence`/`resources`, and `secondary`/`forcePassword`/`usePasswordFiles`
+# are gone. The official image stores data in /var/lib/mysql (vs bitnami /bitnami/mariadb),
+# so migrating an existing DB is a logical dump/restore, NOT a PVC reuse.
 mariadb:
   enabled: false
+
+  image:
+    # MariaDB 10.11 LTS (official tag; rolling within 10.11.x so it gets patches).
+    tag: "10.11"
 
   auth:
     rootPassword: ""
     username: ""
     database: ""
     password: ""
-    forcePassword: true
-    usePasswordFiles: false
 
-  primary:
-    resources:
-      limits:
-        memory: 1Gi
-        cpu: 500m
-      requests:
-        memory: 512Mi
-        cpu: 100m
+  persistence:
+    size: 1Gi
 
-    persistence:
-      size: 1Gi
+  resources:
+    limits:
+      memory: 1Gi
+      cpu: 500m
+    requests:
+      memory: 512Mi
+      cpu: 100m
 
-    livenessProbe:
-      enabled: true
+  livenessProbe:
+    enabled: true
 
-    readinessProbe:
-      enabled: true
-
-  secondary:
-    replicaCount: 0
+  readinessProbe:
+    enabled: true
 
   metrics:
     enabled: true
@@ -172,8 +175,11 @@ mariadb:
         memory: 32Mi
         cpu: 50m
 
+    # cloudpirates/mariadb ships NO ServiceMonitor — php-stack provides one
+    # (templates/mariadb-servicemonitor.yaml) gated on this flag.
     serviceMonitor:
       enabled: true
+      interval: 30s
 
 backup:
   enabled: false
@@ -255,9 +261,14 @@ backup:
     SLACK_CHANNEL: "{{ .slack.channel }}"
     SLACK_WEBHOOK_URL: "{{ .slack.webhookUrl }}"
 
+# Redis: cloudpirates/redis (official docker.io/redis image). Used as cache/queue only.
+# 6.2 (old bitnami) is EOL → default to maintained 7.2; consumers may override.
+# Unlike mariadb, the cloudpirates/redis chart DOES ship its own ServiceMonitor.
 redis:
   enabled: false
   architecture: standalone
+  image:
+    tag: "7.2"
   auth:
     password: ""
   metrics:

@@ -1,0 +1,29 @@
+{{- /*
+  cloudpirates/mariadb exposes a prom/mysqld-exporter sidecar on the DB Service
+  (port name "metrics", :9104) but ships NO ServiceMonitor. php-stack provides one
+  here so Prometheus keeps scraping the DB after the bitnami->cloudpirates swap.
+  Selects the mariadb subchart Service by its standard labels (robust to fullnameOverride).
+*/ -}}
+{{- if and .Values.mariadb.enabled .Values.mariadb.metrics.enabled .Values.mariadb.metrics.serviceMonitor.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "common.names.fullname" . }}-mariadb
+  labels:
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    app.kubernetes.io/component: mariadb-metrics
+    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+spec:
+  endpoints:
+    - port: metrics
+      interval: {{ .Values.mariadb.metrics.serviceMonitor.interval | default "30s" }}
+      honorLabels: true
+  namespaceSelector:
+    matchNames:
+      - {{ .Release.Namespace }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: mariadb
+      app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
