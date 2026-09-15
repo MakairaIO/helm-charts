@@ -1,3 +1,13 @@
+# [php-stack-v3.0.0](https://github.com/MakairaIO/helm-charts/compare/php-stack-v2.4.3...php-stack-v3.0.0) (2026-09-15)
+
+
+* feat(php-stack)!: migrate mariadb+redis from bitnami to cloudpirates ([#71](https://github.com/MakairaIO/helm-charts/issues/71)) ([1ec6afb](https://github.com/MakairaIO/helm-charts/commit/1ec6afbef7232cb3af92183d3831086c239a4d46))
+
+
+### BREAKING CHANGES
+
+* mariadb/redis values schema changed (primary.* flattened; secondary/forcePassword/usePasswordFiles removed) and the images are no longer bitnami, so migrating an existing database is a logical dump/restore, not a PVC reuse.
+
 # [php-stack-v2.4.3](https://github.com/MakairaIO/helm-charts/compare/php-stack-v2.4.2...php-stack-v2.4.3) (2023-09-20)
 
 
