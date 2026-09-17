@@ -141,11 +141,33 @@ mariadb:
     # MariaDB 10.11 LTS (official tag; rolling within 10.11.x so it gets patches).
     tag: "10.11"
 
+  # Distinct `app.kubernetes.io/name`, used when the new instance must run ALONGSIDE
+  # an old bitnami one during a migration. The cloudpirates Service selector is only
+  # {name, instance} and carries no `component: primary` label, so with the default
+  # name it would ALSO select the old bitnami pod and the app would round-robin
+  # between two databases. Leave unset otherwise: a StatefulSet's spec.selector is
+  # immutable, so this cannot be added to an already-deployed release.
+  nameOverride: ""
+
   auth:
+    # Points at the Secret rendered by templates/mariadb-secret.yaml, so the subchart
+    # skips its own — that one regenerates metricsExporterPassword with randAlphaNum on
+    # every render (its `lookup` is always empty under ArgoCD's plain `helm template`),
+    # leaving the Secret permanently OutOfSync and eventually breaking the exporter.
+    # Rendered through the subchart's tplvalues.render, hence the template expression:
+    # it resolves to exactly the name the subchart would have generated, so adopting it
+    # changes neither the StatefulSet's secretKeyRef nor restarts the database.
+    existingSecret: '{{ include "mariadb.fullname" . }}'
+
     rootPassword: ""
     username: ""
     database: ""
     password: ""
+
+    # Exporter password. Pin it explicitly whenever the database ALREADY exists — its
+    # exporter user was created with a specific password and is not re-initialised.
+    # When empty, a stable value is derived from rootPassword.
+    metricsPassword: ""
 
   persistence:
     size: 1Gi
