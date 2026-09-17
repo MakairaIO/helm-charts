@@ -1082,6 +1082,29 @@ entries:
   php-stack:
   - apiVersion: v2
     appVersion: 0.0.0
+    created: "2026-09-17T07:23:06.07810624Z"
+    dependencies:
+    - import-values:
+      - child: addons
+        parent: addons
+      name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.5.2
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://cloudpirates-io.github.io/helm-charts
+      version: ^0.16
+    - condition: redis.enabled
+      name: redis
+      repository: https://cloudpirates-io.github.io/helm-charts
+      version: ^0.30
+    digest: d215ac54dcd0fda608d3b6f6941ca4acc7aff7eecc00d4b2626158b31c58fdbe
+    name: php-stack
+    urls:
+    - https://github.com/MakairaIO/helm-charts/releases/download/php-stack-v3.1.0/php-stack-3.1.0.tgz
+    version: 3.1.0
+  - apiVersion: v2
+    appVersion: 0.0.0
     created: "2026-09-15T06:59:22.524029556+02:00"
     dependencies:
     - import-values:
@@ -1335,4 +1358,4 @@ entries:
     urls:
     - https://github.com/MakairaIO/helm-charts/releases/download/prometheus-exporter-v1.1.2/prometheus-exporter-1.1.2.tgz
     version: 1.1.2
-generated: "2026-09-15T06:59:22.524605426+02:00"
+generated: "2026-09-17T07:23:06.078494318Z"
