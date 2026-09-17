@@ -1,3 +1,10 @@
+# [php-stack-v3.1.0](https://github.com/MakairaIO/helm-charts/compare/php-stack-v3.0.0...php-stack-v3.1.0) (2026-09-17)
+
+
+### Features
+
+* **php-stack:** render mariadb auth secret and follow nameOverride in servicemonitor ([#74](https://github.com/MakairaIO/helm-charts/issues/74)) ([e63563b](https://github.com/MakairaIO/helm-charts/commit/e63563b508b46da86d26f1d81970929124532a97))
+
 # [php-stack-v3.0.0](https://github.com/MakairaIO/helm-charts/compare/php-stack-v2.4.3...php-stack-v3.0.0) (2026-09-15)
 
 
