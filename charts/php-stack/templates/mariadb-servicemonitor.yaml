@@ -3,6 +3,17 @@
   (port name "metrics", :9104) but ships NO ServiceMonitor. php-stack provides one
   here so Prometheus keeps scraping the DB after the bitnami->cloudpirates swap.
   Selects the mariadb subchart Service by its standard labels (robust to fullnameOverride).
+
+  The Service's `app.kubernetes.io/name` follows the subchart's `nameOverride` — its
+  selectorLabels are {name: default .Chart.Name .Values.nameOverride, instance: .Release.Name}
+  — so this selector must follow it too. Consumers set `mariadb.nameOverride` when the
+  new instance must run ALONGSIDE an old bitnami one: the cloudpirates Service selector
+  carries no `component: primary` label, so with the default name it would also select
+  the old bitnami pod and the app would round-robin between two databases.
+
+  Defaults to "mariadb" when unset, matching deployments made before this existed.
+  Do NOT change that default: a StatefulSet's spec.selector is immutable, so altering
+  the name label of an existing release cannot be applied.
 */ -}}
 {{- if and .Values.mariadb.enabled .Values.mariadb.metrics.enabled .Values.mariadb.metrics.serviceMonitor.enabled }}
 apiVersion: monitoring.coreos.com/v1
@@ -24,6 +35,6 @@ spec:
       - {{ .Release.Namespace }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: mariadb
+      app.kubernetes.io/name: {{ .Values.mariadb.nameOverride | default "mariadb" }}
       app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
