@@ -4,9 +4,9 @@ dependencies:
   version: 4.5.2
 - name: mariadb
   repository: https://cloudpirates-io.github.io/helm-charts
-  version: 0.16.5
+  version: 0.16.15
 - name: redis
   repository: https://cloudpirates-io.github.io/helm-charts
-  version: 0.30.4
-digest: sha256:dbad1a4188b36580616206f0e49af4372fac0f011560afe0ccfdee32086168e5
-generated: "2026-06-18T13:45:53.501590865+02:00"
+  version: 0.35.4
+digest: sha256:f5ebdeed07035ebe2e4dfda1ea9c632af4236766c5b2f10895f2b71d59dd250a
+generated: "2026-09-24T21:48:01.895517812Z"
