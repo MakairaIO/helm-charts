@@ -10,7 +10,7 @@ dependencies:
       - child: addons
         parent: addons
   - name: mariadb
-    version: ^0.16
+    version: ^0.17.0
     repository: https://cloudpirates-io.github.io/helm-charts
     condition: mariadb.enabled
   - name: redis
